@@ -1,3 +1,9 @@
+<!--
+  Developer: Sara Asgari, Mohammed Rahman
+  University ID: 23034431, 220083681
+  Function: Home page is the first page a customer visits. Contains links to the producs and a login
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +115,7 @@
       <!-- Carousel Inner (Banners) -->
       <div class="carousel-inner">
         <!-- Banner 1 -->
-        <div class="carousel-item active" style="background-image: url({{ asset('image/fallguy.png') }}}});">
+        <div class="carousel-item active" style="background-image: url({{ asset('image/fallguy.png') }});">
           <div class="carousel-caption d-none d-md-block">
             <h2>Fall Guy</h2>
             <a href="#" class="btn">Play Now</a>
@@ -125,7 +131,7 @@
         </div>
   
         <!-- Banner 3 -->
-        <div class="carousel-item" style="background-image: url({{ asset('image/godofwar.png') }});">
+        <div class="carousel-item" style="background-image: url({{ asset('image/godofwar.jpg') }});">
           <div class="carousel-caption d-none d-md-block">
             <h2>God Of War</h2>
             <a href="#" class="btn">Play Now</a>
