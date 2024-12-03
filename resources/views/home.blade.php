@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Games</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.blade.php">products</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Cart</a></li>
