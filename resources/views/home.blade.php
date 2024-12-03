@@ -35,7 +35,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Games</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Cart</a></li>
         </ul>
       </div>
     </div>
