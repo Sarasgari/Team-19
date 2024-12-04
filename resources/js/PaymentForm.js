@@ -1,3 +1,9 @@
+/* 
+  Developer: Abdulrahman Mostafa
+  University ID: 2300466694
+  Function: Payment Form page let the user prouced with payment 
+*/
+
 document.getElementById('CardNumber').addEventListener('input', function (e) {
     let cardNumber = e.target.value.replace(/\D/g, '');
     cardNumber = cardNumber.substring(0, 16);
@@ -14,7 +20,9 @@ function validExpDate() {
 
     // Check if the selected date is in the future
     if (selectedDate <= today) {
-        alert("Please enter a valid expiry date.");
+
+        alert("Please provide a valid expiration date..");
+
         return false;
     }
     return true;
@@ -25,7 +33,7 @@ function validCVV() {
     const strippedCVV = cvv.replace(/\D/g, "");
 
     if (strippedCVV.length !== 3 || isNaN(strippedCVV)) {
-        alert("The CVV must be exactly 3 digits.");
+        alert("Invalid CVV. It must be 3 digits.");
         return false;
     }
     return true;
@@ -36,7 +44,7 @@ function validCardNumber() {
     const strippedCardNumber = cardNumber.replace(/\D/g, "");
 
     if (strippedCardNumber.length !== 16 || isNaN(strippedCardNumber)) {
-        alert("The credit card number should contain exactly 16 digits.");
+        alert("Please ensure the credit card number contains 16 digits.");
         return false;
     }
     return true;
