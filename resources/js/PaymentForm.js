@@ -1,47 +1,54 @@
+/* Devolper: Abdulrahman Mostafa
+Student Id: 230046694
+Function: this page ensure that the payment requirement are correct */
+
 document.getElementById('CardNumber').addEventListener('input', function (e) {
-    let cardNumber = e.target.value.replace(/\D/g, '');
-    cardNumber = cardNumber.substring(0, 16);
-    e.target.value = cardNumber.replace(/(.{4})/g, '$1 ').trim();
+    let CN = e.target.value.replace(/\D/g, '');
+    CN =  CN.substring(0, 16);
+    e.target.value =  CN.replace(/(.{4})/g, '$1 ').trim();
 });
 
-function validExpDate() {
-    const expDate = document.getElementById("ExpDate").value; // Ensure the ID matches exactly
-    const today = new Date();
-    
-    // Set selected date to the first day of the selected month and year
-    const [year, month] = expDate.split("-");
-    const selectedDate = new Date(year, month - 1); // Month is zero-indexed in Date objects
+/* to chech that the card number is 16 digits*/
+function validCardNumber() {
+    const CN = document.getElementById("CardNumber").value;
+    const HashedCardNumber = CN.replace(/\D/g, "");
 
-    // Check if the selected date is in the future
-    if (selectedDate <= today) {
-        alert("Please enter a valid expiry date.");
+    if ( HashedCardNumber.length !== 16 || isNaN( HashedCardNumber)) {
+        alert("Please ensure the credit card number contains 16 digits.");
+        return false;
+    }
+    return true;
+}
+/* to chech that it is not a past date*/
+function validExpDate() {
+    const endDate = document.getElementById("ExpDate").value; 
+    const day = new Date();
+    
+    
+    const [year, month] = endDate.split("-");
+    const choosenDate = new Date(year, month - 1); 
+
+
+    if (choosenDate <= day) {
+        alert("Please provide a valid expiration date..");
         return false;
     }
     return true;
 }
 
+/* to check that the cvv 3 digits*/
 function validCVV() {
     const cvv = document.getElementById("cvv").value;
-    const strippedCVV = cvv.replace(/\D/g, "");
+    const hashedCVV = cvv.replace(/\D/g, "");
 
-    if (strippedCVV.length !== 3 || isNaN(strippedCVV)) {
-        alert("The CVV must be exactly 3 digits.");
+    if (hashedCVV.length !== 3 || isNaN(hashedCVV)) {
+        alert("Invalid CVV. It must be 3 digits.");
         return false;
     }
     return true;
 }
 
-function validCardNumber() {
-    const cardNumber = document.getElementById("CardNumber").value;
-    const strippedCardNumber = cardNumber.replace(/\D/g, "");
-
-    if (strippedCardNumber.length !== 16 || isNaN(strippedCardNumber)) {
-        alert("The credit card number should contain exactly 16 digits.");
-        return false;
-    }
-    return true;
-}
-
+/* to check that the form is completed */
 function Formcomplete() {
     const form = document.getElementById("CheckoutForm");
 

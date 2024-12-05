@@ -1,9 +1,11 @@
-/* General Styles */
+/* Devolper: Abdulrahman Mostafa
+Student Id: 230046694
+Function: Basket style */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('godofwar.jpg'); /* Replace with your image path */
+  background-image: url('godofwar.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,14 +20,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px); /* Optional blur effect */
+  backdrop-filter: blur(5px); 
 }
 
-/* Square Container */
+
 .square-container {
   width: 600px;
   height: 600px;
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.7); 
   border: 2px solid rgba(204, 204, 204, 0.7);
   border-radius: 10px;
   display: flex;
@@ -38,7 +40,7 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Basket Content */
+
 .basket-container h1 {
   font-size: 2rem;
   margin-bottom: 15px;
@@ -51,7 +53,6 @@ main {
   color: #666;
 }
 
-/* Buttons */
 .btn {
   display: block;
   width: 100%;
@@ -62,15 +63,14 @@ main {
   text-decoration: none;
   margin-bottom: 10px;
   border: none;
-  background-color: #4f4f4f; /* Dark gray background */
-  color: #fff; /* White text */
+  background-color: #4f4f4f; 
+  color: #fff; 
 }
 
 .btn:hover {
-  background-color: #3a3a3a; /* Darker gray on hover */
+  background-color: #3a3a3a; 
 }
 
-/* Footer */
 footer {
   background-color: #343a40;
   color: white;
