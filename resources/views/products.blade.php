@@ -149,7 +149,7 @@
           <!-- Game 1 -->
           <div class="col">
             <div class="card game-card">
-              <img src="b04.jpg" class="card-img-top" alt="PS5 Game">
+              <img src="{{ asset('image/callof.jpg') }}" class="card-img-top" alt="PS5 Game">
               <div class="info-box">
                 <h5>Call of Duty: Black Ops 6</h5>
                 <p>Experience the thrilling action of Black Ops 6 with enhanced graphics and new campaigns.</p>
