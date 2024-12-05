@@ -9,9 +9,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/games', function(){
-    return view('products');
-});
 
 //in page
-Route::get('/producs', [PageController::class, 'products'])->name('products');
+Route::get('/products', [PageController::class, 'products'])->name('products');
+
+Route::get('/basket', [PageController::class, 'basket'])->name('Basket');
+
+Route::get('/aboutus', [PageController::class, 'aboutus'])->name('aboutus');
