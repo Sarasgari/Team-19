@@ -31,8 +31,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
