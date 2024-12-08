@@ -13,6 +13,7 @@
   <title>GameDen - Your Gaming Paradise</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -32,11 +33,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">products</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Store</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('Basket') }}">
+          <i class="fas fa-shopping-bag"></i>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">
+        <i class="fas fa-user-plus"></i>
+    </a>
+</li>
         </ul>
       </div>
     </div>
