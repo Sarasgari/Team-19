@@ -1,0 +1,38 @@
+
+/* Devolper: Abdulrahman Mostafa
+Student Id: 230046694
+Function: Payment style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+.success-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px 50px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.tick-icon {
+    font-size: 4em;
+    color: #28a745;
+    margin-top: 10px;
+}
