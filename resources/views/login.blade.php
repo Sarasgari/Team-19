@@ -1,7 +1,7 @@
 <!--
 Developer: Eyad Al Saher
 University ID: 230047989
-Function : Signup page enable the new user to register into the website
+Function : Login page enable the login to the website and enjoy with the features
 -->
 
 <!DOCTYPE html>
