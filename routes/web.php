@@ -29,4 +29,8 @@ Route::get('/paymentform', [PageController::class, 'paymentform'])->name('paymen
 
 Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 
+Route::get('/game', [PageController::class, 'game'])->name('game');
+
+
+
     

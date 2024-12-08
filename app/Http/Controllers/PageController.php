@@ -49,5 +49,10 @@ class PageController extends Controller
         return view('payment'); 
     }
 
+    public function game()
+    {
+        return view('game'); 
+    }
+
 }
 
