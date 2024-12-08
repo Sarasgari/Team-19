@@ -9,12 +9,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
-    <link rel="stylesheet" href="PaymentForm.css">
+    <link rel="stylesheet" href="{{ asset('css/PaymentForm.css') }}">
 </head>
 <body>
-
+<!--paymentform-->
 <form id="CheckoutForm">
     <h1>Payment</h1>
+
+    
     <label for="name">Full Name</label><br>
     <input class="box1" type="text" name="name" id="name" placeholder="Enter Name" required><br>
 
@@ -44,7 +46,7 @@
     <button class="box3" type="button" onclick="redirectToHome()">Cancel</button>
 
 
-    <script src="PaymentForm.js"></script>
+    <script src="{{ asset('js/PaymentForm.js') }}"></script>
 </form>
 
 </body>
