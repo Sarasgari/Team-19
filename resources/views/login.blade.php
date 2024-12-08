@@ -1,3 +1,9 @@
+<!--
+Developer: Eyad Al Saher
+University ID: 230047989
+Function : Signup page enable the new user to register into the website
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
