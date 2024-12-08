@@ -10,7 +10,7 @@
   <style>
     
     body {
-      background-image: url('background.gif'); 
+      background-image: url("{{ asset('image/background.gif') }}"); 
       background-size: cover; 
       background-repeat: no-repeat; 
       background-attachment: fixed; 
