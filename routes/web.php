@@ -23,14 +23,10 @@ Route::get('/signup', [PageController::class, 'signup'])->name('signup');
 
 Route::get('/login', [PageController::class, 'login'])->name('login');
 
-Route::get('/home', [PageController::class, 'home'])->name('home');
-
 Route::get('/paymentform', [PageController::class, 'paymentform'])->name('paymentform');
 
 Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 
 Route::get('/game', [PageController::class, 'game'])->name('game');
 
-
-
-    
+Route::get('/', [PageController::class, 'home'])->name('home');

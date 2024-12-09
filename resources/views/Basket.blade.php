@@ -12,7 +12,6 @@
   <title>Your Basket</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
   <link rel="stylesheet" href="{{ asset('css/Basket.css') }}">
-
 </head>
 <body>
   <!-- Navbar -->
@@ -34,6 +33,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Register</a></li>
+
         </ul>
       </div>
     </div>
@@ -47,8 +47,9 @@
       <div class="basket-container">
         <h1>Your Basket</h1>
         <p>Your basket is currently empty. Add some items to see them here!</p>
-        <a href="{{ route('products') }}" class="btn">Continue Shopping</a>
         <a href="{{ route('paymentform') }}" class="btn">Proceed to Payment</a>
+        <a href="{{ route('home') }}" class="btn">Continue Shopping</a>
+        <a href="PaymentForm.html" class="btn">Proceed to Payment</a>
       </div>
     </div>
   </main>

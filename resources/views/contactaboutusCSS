@@ -1,0 +1,257 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray-dark: #333333;
+    --gray-medium: #666666;
+    --gray-light: #f5f5f5;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Modern Header */
+header {
+    background: var(--black);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.5px;
+}
+
+/* Sleek Navigation */
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+nav a:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* Sign Up Button */
+.signup-btn {
+    background: var(--white);
+    color: var(--black) !important;
+    padding: 0.6rem 1.8rem !important;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.signup-btn:hover {
+    background: var(--gray-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Boxes */
+.intro-box,
+.content-box {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+}
+
+.intro-box:hover,
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Headings */
+.intro-box h1,
+.content-box h2 {
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+/* About Container */
+.about-container {
+    margin-top: 120px;
+    padding: 3rem 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Lists */
+.content-box ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.content-box li {
+    margin: 1.2rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: var(--gray-dark);
+    font-size: 1.05rem;
+}
+
+.content-box li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--black);
+}
+
+/* Contact Form */
+.contact-container {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 120px auto 2rem auto;
+}
+
+.contact-container form {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+}
+
+.contact-container label {
+    color: var(--gray-dark);
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.8rem;
+    background: var(--gray-light);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    color: var(--black);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: var(--black);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container input[type="submit"] {
+    background: var(--black);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: none;
+    transition: var(--transition);
+    width: auto;
+    min-width: 200px;
+}
+
+.contact-container input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Section */
+.cta-box {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 3.5rem 2rem;
+    border-radius: 16px;
+    margin: 4rem 0;
+}
+
+.cta-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    nav {
+        gap: 1rem;
+    }
+
+    .intro-box,
+    .content-box {
+        padding: 2rem;
+    }
+
+    .about-container {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-container,
+.contact-container {
+    animation: fadeIn 0.5s ease-out forwards;
+}

@@ -1,3 +1,4 @@
+
 <!--
   Developer: Fatima Mansur
   University ID: 230274345
@@ -18,8 +19,6 @@
         Your browser does not support the video tag.
     </video>
 </head>
-
-
 <body>
 
   <!-- Navbar -->
@@ -45,8 +44,6 @@
       </div>
     </div>
   </nav>
-
-
     <div class="about-container">
         <div class="intro-box">
             <h1>About GameDen</h1>
