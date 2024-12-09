@@ -9,8 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Successful</title>
-    <link rel="stylesheet" href="Payment.css">
+    <link rel="stylesheet" href="{{ asset('css/Payment.css') }}">
 </head>
+<!-- it shows that the payment is successful-->
 <body>
     <div class="success-container">
         <h1>Payment Successful</h1>

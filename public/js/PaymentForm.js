@@ -8,7 +8,7 @@ document.getElementById('CardNumber').addEventListener('input', function (e) {
     e.target.value =  CN.replace(/(.{4})/g, '$1 ').trim();
 });
 
-/* to chech that the card number is 16 digits*/
+/* to chech that the card number is 16 digits and only numbers*/
 function validCardNumber() {
     const CN = document.getElementById("CardNumber").value;
     const HashedCardNumber = CN.replace(/\D/g, "");
@@ -36,7 +36,7 @@ function validExpDate() {
     return true;
 }
 
-/* to check that the cvv 3 digits*/
+/* to check that the cvv 3 digits and only numbers*/
 function validCVV() {
     const cvv = document.getElementById("cvv").value;
     const hashedCVV = cvv.replace(/\D/g, "");
@@ -48,13 +48,13 @@ function validCVV() {
     return true;
 }
 
-/* to check that the form is completed */
+/* to check that the form is completed and valid*/
 function Formcomplete() {
     const form = document.getElementById("CheckoutForm");
 
     if (form.checkValidity()) {
         if (validCVV() && validCardNumber() && validExpDate()) {
-            window.location.href = "payment.html";
+            window.location.href = "{{ route('payment') }}";
         }
     } else {
         form.reportValidity();
@@ -62,5 +62,5 @@ function Formcomplete() {
 }
 
 function redirectToHome() {
-    window.location.href = "home.html";
+    window.location.href = "{{ route('home') }}";
 }

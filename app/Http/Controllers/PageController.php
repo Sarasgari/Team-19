@@ -24,4 +24,40 @@ class PageController extends Controller
     {
         return view('aboutus');
     }
+
+    public function contactus()
+    {
+        return view('contactus'); 
+    }
+
+    public function signup()
+    {
+        return view('Signup'); 
+    }
+
+    public function login()
+    {
+        return view('Login'); 
+    }
+    public function home()
+    {
+        return view('home'); 
+    }
+
+    public function paymentform()
+    {
+        return view('PaymentForm'); 
+    }
+
+    public function payment()
+    {
+        return view('payment'); 
+    }
+
+    public function game()
+    {
+        return view('game'); 
+    }
+
 }
+
