@@ -41,12 +41,8 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('Basket') }}">
           <i class="fas fa-shopping-bag"></i>
         </a></li>
-        <!-- Search Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-search"></i>
-          </a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">
+        <i class="fas fa-user-plus"></i></li>
       </ul>
     </div>
   </div>
