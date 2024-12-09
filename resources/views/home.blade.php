@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <div>
-      <a class="navbar-brand" href="home">
+      <a class="navbar-brand" href="#">
         <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
       GameDen
       </a>
@@ -34,7 +34,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Store</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         <!-- Updated Cart Icon (Bag) -->

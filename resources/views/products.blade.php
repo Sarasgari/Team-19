@@ -128,12 +128,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="{{ route('home')}}">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Register</a></li>
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
         </ul>
       </div>
     </div>
@@ -172,7 +172,7 @@
           <!-- Game 2 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/return.jpg') }}" class="card-img-top" alt="Resident Evil PS5 Game">
+              <img src="{{ asset('image/return.jpg') }}" class="card-img-top" alt="Resident Evil PS5 Game">
               <div class="info-box">
                 <h5>Resident Evil 4: Gold Edition</h5>
                 <p>Survive the horrors with upgraded visuals and gameplay in this thrilling gold edition.</p>
@@ -191,13 +191,14 @@
           <!-- Game 3 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/last.jpg') }}" class="card-img-top" alt="FIFA PS5 Game">
+
+              <img src="{{ asset('image/last.jpg') }}" class="card-img-top" alt="Last of Us PS5">
               <div class="info-box">
                 <h5>The Last Of Us</h5>
                 <p>The Last Of Us, Part 1.</p>
               </div>
               <div class="card-body">
-                <h5 class="card-title">the last of us</h5>
+                <h5 class="card-title">The Last of Us</h5>
                 <div class="rating">
                   <span class="text-warning">⭐ 4.9</span>
                 </div>
@@ -210,7 +211,7 @@
           <!-- Game 4 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/gta123.jpg') }}" class="card-img-top" alt="GTA PS5 Game">
+              <img src="{{ asset('image/gta123.jpg') }}" class="card-img-top" alt="GTA PS5 Game">
               <div class="info-box">
                 <h5>Grand Theft Auto V (GTA V)</h5>
                 <p>Explore Los Santos in this critically acclaimed action-packed open-world game.</p>
@@ -229,7 +230,7 @@
           <!-- Game 5 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/mine.jpg') }}"class="card-img-top" alt="Minecraft PS5 Game">
+              <img src="{{ asset('image/mine.jpg') }}" class="card-img-top" alt="Minecraft PS5 Game">
               <div class="info-box">
                 <h5>Minecraft (PS5 Edition)</h5>
                 <p>Unleash your creativity and build limitless worlds in Minecraft's PS5 Edition.</p>
@@ -257,7 +258,7 @@
 <!-- Game 1 -->
 <div class="col">
  <div class="card game-card">
- <img src="{{asset('image/xbox1.jpg') }}" class="card-img-top" alt="Xbox Game">
+  <img src="{{ asset('image/xbox1.jpg') }}" class="card-img-top" alt="Xbox Game">
    <div class="info-box">
     <h5>Skull Island: Rise of Kong</h5>
      <p>Embark on an epic journey to uncover the mysteries of Skull Island as the mighty Kong.</p>
@@ -276,7 +277,7 @@
           <!-- Game 2 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{asset('image/xbox2.jpg') }}" class="card-img-top" alt="Xbox Game">
+              <img src="{{ asset('image/xbox2.jpg') }}" class="card-img-top" alt="Xbox Game">
               <div class="info-box">
                 <h5>Hogwarts Legacy</h5>
                 <p>Experience life as a student at Hogwarts in this magical open-world adventure.</p>
@@ -295,7 +296,7 @@
           <!-- Game 3 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/halo.jpg') }}" class="card-img-top" alt="Halo Game">
+              <img src="{{ asset('image/halo.jpg') }}" class="card-img-top" alt="Halo Game">
               <div class="info-box">
                 <h5>Halo Infinite</h5>
                 <p>Join Master Chief in the latest chapter of the Halo saga with epic battles.</p>
@@ -314,7 +315,7 @@
           <!-- Game 4 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/xbox4.jpg') }}" class="card-img-top" alt="Xbox Game">
+              <img src="{{ asset('image/xbox4.jpg') }}" class="card-img-top" alt="Xbox Game">
               <div class="info-box">
                 <h5>Goat Simulator 3</h5>
                 <p>Unleash chaos in this hilarious and over-the-top goat simulation game.</p>
@@ -333,7 +334,7 @@
           <!-- Game 5 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/xbox5.jpg') }}" class="card-img-top" alt="Xbox Game">
+              <img src="{{ asset('image/xbox5.jpg') }}" class="card-img-top" alt="Xbox Game">
               <div class="info-box">
                 <h5>Starship Troopers: Extermination</h5>
                 <p>Defend humanity from alien threats in this action-packed sci-fi shooter.</p>
@@ -358,7 +359,7 @@
           <!-- Game 1 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/nintendo1.jpg')}}" class="card-img-top" alt="Nintendo Game">
+              <img src="{{ asset('image/nintendo1.jpg') }}" class="card-img-top" alt="Nintendo Game">
               <div class="info-box">
                 <h5>Super Mario Odyssey</h5>
                 <p>Embark on an epic adventure across various worlds with Mario and his new companion, Cappy.</p>
@@ -377,7 +378,7 @@
           <!-- Game 2 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/nintendo2.jpg')}}" class="card-img-top" alt="Nintendo Game">
+              <img src="{{ asset('image/nintendo2.jpg') }}" class="card-img-top" alt="Nintendo Game">
               <div class="info-box">
                 <h5>The Legend of Zelda:</h5>
                 <p>Explore a vast open world as Link and uncover the mysteries of Hyrule in this breathtaking adventure.</p>
@@ -396,7 +397,7 @@
           <!-- Game 3 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/nintendo3.jpg')}}" class="card-img-top" alt="Nintendo Game">
+              <img src="{{ asset('image/nintendo3.jpg') }}" class="card-img-top" alt="Nintendo Game">
               <div class="info-box">
                 <h5>Carnival Games</h5>
                 <p>Step right up and enjoy a variety of exciting mini-games in this fun-filled carnival adventure.</p>
@@ -415,7 +416,7 @@
           <!-- Game 4 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/nintendo4.jpg')}}" class="card-img-top" alt="Nintendo Game">
+              <img src="{{ asset('image/nintendo4.jpg') }}" class="card-img-top" alt="Nintendo Game">
               <div class="info-box">
                 <h5>Splatoon 3</h5>
                 <p>Jump into the action-packed ink-splatting fun in this competitive multiplayer shooter.</p>
@@ -434,7 +435,7 @@
           <!-- Game 5 -->
           <div class="col">
             <div class="card game-card">
-            <img src="{{ asset('image/nintendo5.jpg')}}" class="card-img-top" alt="Nintendo Game">
+              <img src="{{ asset('image/nintendo5.jpg') }}" class="card-img-top" alt="Nintendo Game">
               <div class="info-box">
                 <h5>Mario Kart 8 Deluxe</h5>
                 <p>Race against your friends and family in the ultimate Mario Kart experience, featuring all-new tracks.</p>
@@ -459,7 +460,7 @@
         <div class="col">
           <div class="card game-card">
             <div class="image-wrapper">
-            <img src="{{asset('image/ps4.jpg')}}" class="card-img-top" alt="The Last of Us Part II">
+              <img src="{{ asset('image/ps4.jpg') }}" class="card-img-top" alt="The Last of Us Part II">
               <div class="info-box">
                 <h5>The Last of Us Part II</h5>
                 <p>Experience an emotionally charged journey in a post-apocalyptic world filled with danger and moral challenges.</p>
@@ -475,7 +476,7 @@
         <div class="col">
           <div class="card game-card">
             <div class="image-wrapper">
-            <img src="{{asset('image/border.jpg')}}" class="card-img-top" alt="Borderlands 3">
+              <img src="{{ asset('image/border.jpg') }}" class="card-img-top" alt="Borderlands 3">
               <div class="info-box">
                 <h5>Borderlands 3</h5>
                 <p>The chaotic looter-shooter returns with explosive action, outrageous humor, and endless loot.</p>
@@ -491,7 +492,7 @@
         <div class="col">
           <div class="card game-card">
             <div class="image-wrapper">
-            <img src="{{asset('image/sniper.jpg')}}" class="card-img-top" alt="Sniper Elite 4">
+              <img src="{{ asset('image/sniper.jpg') }}" class="card-img-top" alt="Sniper Elite 4">
               <div class="info-box">
                 <h5>Sniper Elite 4</h5>
                 <p>Engage in tactical combat as an elite sniper during World War II. Master stealth and precision to defeat your enemies.</p>
@@ -507,7 +508,7 @@
         <div class="col">
           <div class="card game-card">
             <div class="image-wrapper">
-            <img src="{{asset('image/blackop.jpg')}}" class="card-img-top" alt="Call of Duty: Cold War">
+              <img src="{{ asset('image/blackop.jpg') }}" class="card-img-top" alt="Call of Duty: Cold War">
               <div class="info-box">
                 <h5>Call of Duty: Cold War</h5>
                 <p>Step into the Cold War era with intense multiplayer, Zombies mode, and a gripping campaign full of espionage.</p>
@@ -523,7 +524,7 @@
         <div class="col">
           <div class="card game-card">
             <div class="image-wrapper">
-            <img src="{{asset('image/jedi.jpg')}}" class="card-img-top" alt="Star Wars Jedi: Fallen Order">
+              <img src="{{ asset('image/jedi.jpg') }}" class="card-img-top" alt="Star Wars Jedi: Fallen Order">
               <div class="info-box">
                 <h5>Star Wars Jedi: Fallen Order</h5>
                 <p>Embark on an epic journey as a Jedi Padawan on the run from the Empire. Explore, fight, and solve puzzles in a galaxy far, far away.</p>
@@ -547,7 +548,7 @@
     <div class="col">
       <div class="card game-card">
         <div class="image-wrapper">
-        <img src="{{asset('image/pc.jpg')}}" class="card-img-top" alt="PC Game">
+          <img src="{{ asset('image/pc.jpg') }}" class="card-img-top" alt="PC Game">
           <div class="info-box">
             <h5>Cyberpunk 2077</h5>
             <p>Immerse yourself in a dystopian world with futuristic technology, epic quests, and a gripping narrative.</p>
@@ -563,7 +564,7 @@
     <div class="col">
       <div class="card game-card">
         <div class="image-wrapper">
-        <img src="{{asset('image/tomb.jpg')}}" class="card-img-top" alt="Tomb Raider">
+          <img src="{{ asset('image/tomb.jpg') }}" class="card-img-top" alt="Tomb Raider">
           <div class="info-box">
             <h5>Shadow of the Tomb Raider</h5>
             <p>Join Lara Croft on her most challenging adventure yet, uncovering ancient mysteries and fighting to save the world.</p>
@@ -579,7 +580,7 @@
     <div class="col">
       <div class="card game-card">
         <div class="image-wrapper">
-        <img src="{{ asset('image/gear.jpg')}}" class="card-img-top" alt="Gears of War">
+          <img src="{{ asset('image/gear.jpg') }}" class="card-img-top" alt="Gears of War">
           <div class="info-box">
             <h5>Gears 5</h5>
             <p>Experience the next chapter in the epic Gears of War saga with intense action, thrilling story, and multiplayer modes.</p>
@@ -595,7 +596,7 @@
     <div class="col">
       <div class="card game-card">
         <div class="image-wrapper">
-        <img src="{{asset('image/gta.jpg')}}" class="card-img-top" alt="GTA V">
+          <img src="{{ asset('image/gta.jpg') }}" class="card-img-top" alt="GTA V">
           <div class="info-box">
             <h5>Grand Theft Auto V</h5>
             <p>Explore the vast open world of Los Santos with gripping missions, endless customization, and an immersive storyline.</p>
@@ -611,7 +612,7 @@
     <div class="col">
       <div class="card game-card">
         <div class="image-wrapper">
-        <img src="{{asset('image/war.jpg')}}" class="card-img-top" alt="Call of Duty">
+          <img src="{{ asset('image/war.jpg') }}" class="card-img-top" alt="Call of Duty">
           <div class="info-box">
             <h5>Call of Duty: Modern Warfare</h5>
             <p>Engage in intense battles in this thrilling modern military shooter, featuring a cinematic campaign and multiplayer action.</p>
