@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function signup(){
+        return view('signup');
+    }
+    
+    public function signin(){
+        return view('login');
+    }
+
     public function home(){
         return view('home');
     }

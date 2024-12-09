@@ -119,7 +119,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="image/logo.png" alt="GameDen" class="d-inline-block align-text-top" style="height: 40px;">
+        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen" class="d-inline-block align-text-top" style="height: 40px;">
+        GameDen
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -161,7 +162,7 @@
                   <span class="text-warning">⭐ 4.8</span>
                 </div>
                 <p class="card-text">£49.99</p>
-                <button class="btn cart-btn">Add to Cart</button>
+                <button type="submit" class="btn cart-btn">Add to Cart</button>
               </div>
             </div>
           </div>
