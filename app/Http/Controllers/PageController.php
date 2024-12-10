@@ -39,10 +39,6 @@ class PageController extends Controller
     {
         return view('Login'); 
     }
-    public function home()
-    {
-        return view('home'); 
-    }
 
     public function paymentform()
     {
