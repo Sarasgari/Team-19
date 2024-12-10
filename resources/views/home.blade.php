@@ -25,8 +25,8 @@
   <div class="container">
     <div>
       <a class="navbar-brand" href="#">
-        <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
-      GameDen
+        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
+        GameDen
       </a>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

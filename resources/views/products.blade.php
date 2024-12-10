@@ -120,7 +120,7 @@
     <div class="container">
       <div>
       <a class="navbar-brand" href="#">
-        <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
+        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen" class="d-inline-block align-text-top" style="height: 40px;">
         GameDen
       </a>
     </div>
@@ -164,7 +164,7 @@
                   <span class="text-warning">⭐ 4.8</span>
                 </div>
                 <p class="card-text">£49.99</p>
-                <button class="btn cart-btn">Add to Cart</button>
+                <button type="submit" class="btn cart-btn">Add to Cart</button>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 <!--
-  Developer: Abdulrahman Mostafa
-  University ID: 2300466694
+  Developer: Abdulrahman Mostafa, Mohammed Rahman
+  University ID: 2300466694, 220083681
   Function: Basket page hold the items and prouced to the payment form 
 -->
 <!DOCTYPE html>
@@ -46,8 +46,47 @@
     <div class="square-container">
       <div class="basket-container">
         <h1>Your Basket</h1>
-        <p>Your basket is currently empty. Add some items to see them here!</p>
-        <a href="{{ route('paymentform') }}" class="btn">Proceed to Payment</a>
+        @if(session('cart'))
+          <form action="{{ route('cart.update') }}" method=POST>
+            @csrf
+            <table>
+              <thead>
+                <tr>
+                  <th>Game</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach(session('cart') as $id => $details)
+                  <tr>
+                    <td>{{ $details['name'] }}</td>
+                    <td>{{ $details['price'] }}</td>
+                    <td>
+                      <input type="number" name="quantities[{{ $id }}]" value="{{ $details['quantity'] }}" min="1">
+                    </td>
+                    <td>{{ $details['quantity'] * $details['price'] }}</td>
+                    <td>
+                      <form action="{{ route('cart.remove', $id) }}" method="POST">
+                        @csrf
+                        <button type="submit">Remove</button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+            <button type="submit">Update Cart</button>
+          </form> 
+
+          <h3>Total: ${{ array_sum(array_map(function ($details) {
+              return $details['quantity'] * $details['price'];
+            }, session('cart'))) }}</h3>
+        @else
+            <p>Your cart is empty!</p>
+        @endif
         <a href="{{ route('home') }}" class="btn">Continue Shopping</a>
         <a href="PaymentForm.html" class="btn">Proceed to Payment</a>
       </div>
@@ -63,5 +102,3 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
