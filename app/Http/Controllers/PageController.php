@@ -38,11 +38,6 @@ class PageController extends Controller
         return view('contactus'); 
     }
 
-    public function signup()
-    {
-        return view('Signup'); 
-    }
-
     public function login()
     {
         return view('Login'); 
