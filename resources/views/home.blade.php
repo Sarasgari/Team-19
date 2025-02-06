@@ -18,13 +18,14 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
+<header>
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <div>
       <a class="navbar-brand" href="#">
-        <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
+        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
         GameDen
       </a>
     </div>
@@ -78,7 +79,7 @@
     <div class="hero-content text-center">
       <h1>Welcome to GameDen</h1>
       <p>Your one-stop shop for gaming greatness!</p>
-      <a href="#" class="btn btn-primary btn-lg">Explore Games</a>
+      <a href="{{ route('game') }}" class="btn btn-primary btn-lg">Explore Games</a>
     </div>
   </section>
 

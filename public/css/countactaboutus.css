@@ -20,52 +20,13 @@ body {
     color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: 70px;
 }
-
-/* Modern Header */
-header {
-    background: var(--black);
-    backdrop-filter: blur(10px);
+.navbar {
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
-    padding: 1.2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--box-shadow);
-}
-
-header h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.5px;
-}
-
-/* Sleek Navigation */
-nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    padding: 0.6rem 1.4rem;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: var(--transition);
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-}
-
-nav a:hover {
-    background: var(--white);
-    color: var(--black);
-    transform: translateY(-2px);
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above all other elements */
 }
 
 /* Sign Up Button */

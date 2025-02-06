@@ -115,12 +115,15 @@
 </head>
 
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+      <div>
       <a class="navbar-brand" href="#">
-        <img src="image/logo.png" alt="GameDen" class="d-inline-block align-text-top" style="height: 40px;">
+        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen" class="d-inline-block align-text-top" style="height: 40px;">
+        GameDen
       </a>
+    </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -150,7 +153,7 @@
           <!-- Game 1 -->
           <div class="col">
             <div class="card game-card">
-              <img src="{{ asset('image/callof.jpg') }}" class="card-img-top" alt="PS5 Game">
+            <img src="{{ asset('image/b04.jpg') }}" class="card-img-top" alt="PS5 Game">
               <div class="info-box">
                 <h5>Call of Duty: Black Ops 6</h5>
                 <p>Experience the thrilling action of Black Ops 6 with enhanced graphics and new campaigns.</p>
@@ -161,7 +164,7 @@
                   <span class="text-warning">⭐ 4.8</span>
                 </div>
                 <p class="card-text">£49.99</p>
-                <button class="btn cart-btn">Add to Cart</button>
+                <button type="submit" class="btn cart-btn">Add to Cart</button>
               </div>
             </div>
           </div>
@@ -188,6 +191,7 @@
           <!-- Game 3 -->
           <div class="col">
             <div class="card game-card">
+
               <img src="{{ asset('image/last.jpg') }}" class="card-img-top" alt="Last of Us PS5">
               <div class="info-box">
                 <h5>The Last Of Us</h5>

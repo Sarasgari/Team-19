@@ -76,6 +76,27 @@ class PageController extends Controller
     {
     Auth::logout();
     return redirect('/')->with('success', 'Loged out.');
+
+    public function contactus()
+    {
+        return view('contactus'); 
+    }
+
+    public function paymentform()
+    {
+        return view('PaymentForm'); 
+    }
+
+    public function payment()
+    {
+        return view('payment'); 
+    }
+
+    public function game()
+    {
+        return view('game'); 
+
     }
 
 }
+

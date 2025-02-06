@@ -1,3 +1,10 @@
+
+<!--
+  Developer: Fatima Mansur
+  University ID: 230274345
+  Function: About us page provides information about the company
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +12,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - GameDen</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="csspage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/countactaboutus.css') }}">
     <video autoplay muted loop id="background-video">
         <source src="movie2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </head>
 <body>
-    <header>
-        <h1>GameDen</h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="about.php">About Us</a>
-            <a href="contact.php">Contact Us</a>
-            <a href="signup.php" class="signup-btn">Sign Up</a>
-        </nav>
-    </header>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <div>
+      <a class="navbar-brand" href="#">
+        <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
+        GameDen
+      </a>
+    </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">products</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <div class="about-container">
         <div class="intro-box">
             <h1>About GameDen</h1>
@@ -90,5 +113,7 @@
             </p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
