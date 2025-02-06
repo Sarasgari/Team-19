@@ -37,6 +37,18 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <!--Show button/ Consider Login condition-->
+        @guest
+          <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="{{ url('/signup') }}">Sign Up</a></li>
+        @else
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Welcome, {{ auth()->user()->name }}!
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="{{ url('/logout') }}">Logout</a></li>
+        @endguest
         <!-- Updated Cart Icon (Bag) -->
         <li class="nav-item"><a class="nav-link" href="{{ route('Basket') }}">
           <i class="fas fa-shopping-bag"></i>
