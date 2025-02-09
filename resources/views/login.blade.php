@@ -8,7 +8,29 @@ Function : Login page enable the login to the website and enjoy with the feature
 @section('body')
 
     <div class="container mx-auto text-center">
-        <form class="form" action="" method="POST">
+        <div class="mt-5">
+            @if($errors->any())
+                <div class="mt-5">
+                    @if($errors->any())
+                        <div class="col-12">
+                            @foreach($errors->all() as $error)
+                                <div class="alert alert-danger">{{$error}}</div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            @endif
+
+            @if(session()->has('error'))
+                <div class="alert alert-danger">{{session('error')}}</div>
+            @endif
+
+            @if(session()->has('success'))
+                <div class="alert alert-success">{{session('success')}}</div>
+            @endif
+        </div>
+        <form class="form" action="{{route('loginpost')}}" method="POST">
+            @csrf
             <h2>Log In</h2>
 
             <div class="row mb-3">

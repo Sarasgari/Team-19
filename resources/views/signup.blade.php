@@ -8,7 +8,8 @@ Function : Login page enable the login to the website and enjoy with the feature
 @section('body')
 
     <div class="container mx-auto text-center">
-        <form class="form" action="" method="POST">
+        <form class="form" action="{{route('registerPost')}}" method="POST">
+            @csrf
             <h2>Sign Up</h2>
 
             <div class="row mb-3">
@@ -26,7 +27,7 @@ Function : Login page enable the login to the website and enjoy with the feature
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
             
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
             
             <p>Have an account ? <a href="{{ route('login') }}">Log In</a></p>
             <a href="{{ route('home') }}" class="btn btn-secondary mt-3">Back to Home</a>

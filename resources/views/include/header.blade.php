@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('login')}}">Log In</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('logout')}}">Log Out</a>
+        </li>
         <!--shopping bag-->
         <li class="nav-item"><a class="nav-link" href="{{ route('Basket') }}">
           <i class="fas fa-shopping-bag"></i>
