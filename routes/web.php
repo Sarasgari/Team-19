@@ -27,11 +27,11 @@ Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 Route::get('/game', [PageController::class, 'game'])->name('game');
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/signup', [PageController::class, 'signup']);
-Route::post('/signup', [PageController::class, 'register']);
+Route::get('/signup', [PageController::class, 'signup'])->name('signup');
+Route::post('/signup', [PageController::class, 'register'])->name('signup');
 
-Route::get('/login', [PageController::class, 'login']);
-Route::post('/login', [PageController::class, 'authenticate']);
+Route::get('/login', [PageController::class, 'login'])->name('login');
+Route::post('/login', [PageController::class, 'authenticate'])->name('login');
 
 Route::get('/logout', [PageController::class, 'logout']);
 

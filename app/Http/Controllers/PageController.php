@@ -76,6 +76,7 @@ class PageController extends Controller
     {
     Auth::logout();
     return redirect('/')->with('success', 'Loged out.');
+    }
 
     public function contactus()
     {

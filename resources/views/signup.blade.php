@@ -46,7 +46,7 @@ Function : Signup page enable the new user to register into the website
             </div>
         @endif
 
-        <p>Already have an account? <a href="{{ route('signin') }}">Sign in</a></p>
+        <p>Already have an account? <a href="{{ route('login') }}">Sign in</a></p>
     </form>
 
 </body>
