@@ -1,43 +1,46 @@
-Developer: Eyad Al Saher
-University ID: 230047989
-Function : Signup page enable the new user to register into the website
-<!DOCTYPE html>
-<html lang="en">
+<!--Developer: Eyad Al Saher, Minwoo Noh, Mohammed Rahman
+University ID: 230047989, 230409589, 220083681
+Function : Login page enable the login to the website and enjoy with the features
+-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Signup Form</title>
-    <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{asset('SignupLogin.css')}}"/>
+    <link rel="stylesheet" href="{{asset('stylesheet.css')}}"/>
+    <style>
+        body{
+            background-image: url("{{asset('image/abstract.jpg')}}");
+        }
+    </style>
 </head>
-<body>
-<style>body {background-image: url("{{ asset('image/abstract.jpg') }}")}</style>
-    <form class="form" action="{{ route('customRegister') }}" method="POST">
-        @csrf
-        <h2>Signup</h2>
-            <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            @if ($errors->has('name'))
-            <span class="text-danger">{{ $errors->first('name') }}</span>
-            @endif
-        </div>
+@extends('layout')
+@section('title','Sign Up')
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            @if ($errors->has('email'))
-            <span class="text-danger">{{ $errors->first('email') }}</span>
-            @endif
-        </div>
+@section('body')
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        @if ($errors->has('password'))
-        <span class="text-danger">{{ $errors->first('password') }}</span>
-        @endif
+    <div class="container mx-auto text-center">
+        <form class="form" action="{{route('registerPost')}}" method="POST">
+            @csrf
+            <h2 style="color:rgb(255, 255, 255);" >Sign Up</h2>
 
-        <button type="submit">Sign Up</button>
-        <p>Have an account? <a href="{{ route('signin') }}">Sign in</a></p>
-    </form>
-</body>
-</html>
+            <div class="row mb-3">
+                <label style="color:rgb(255, 255, 255);" for="name" class="col-sm-2 col-form-label">Name</label>
+                <input id="email" name="name" placeholder="Enter your email" required>
+            </div>
+
+            <div class="row mb-3">
+                <label style="color:rgb(255, 255, 255);" for="email" class="col-sm-2 col-form-label">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="row mb-3">
+                <label style="color:rgb(255, 255, 255);" for="password" class="col-sm-2 col-form-label">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+            
+            <p style="color:rgb(255, 255, 255);" >Have an account ? <a href="{{ route('login') }}">Log In</a></p>
+            <a href="{{ route('home') }}" class="btn btn-secondary mt-3">Back to Home</a>
+        </form>
+    </div>
+    
+@endsection

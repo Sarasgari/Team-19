@@ -13,16 +13,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'loginpost'])->name('loginpost');
+
+//signup
+Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'registerPost'])->name('registerPost');
+
+//logout
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 //in page
 Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/basket', [PageController::class, 'basket'])->name('Basket');
 Route::get('/aboutus', [PageController::class, 'aboutus'])->name('aboutus');
 
 Route::get('/contactus', [PageController::class, 'contactus'])->name('contactus');
-
-Route::get('/signup', [PageController::class, 'signup'])->name('signup');
-
-Route::get('/login', [PageController::class, 'login'])->name('login');
 
 Route::get('/paymentform', [PageController::class, 'paymentform'])->name('paymentform');
 
