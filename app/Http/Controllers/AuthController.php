@@ -1,6 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
+// Developers: Mohammed Rahman, Minwoo Noh
+// Student Numbers: 220083681, 230409589
+// Description: Controller files that hosts the signup, login and logout processes
+
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
