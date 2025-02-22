@@ -1,62 +1,61 @@
 <?php
-
 namespace App\Http\Controllers;
+// Developers: Mohammed Rahman, Minwoo Noh
+// Student Numbers: 220083681, 230409589
+// Description: Controller files that hosts the signup, login and logout processes
 
-use Illuminate\Http\Request;
-use Hash;
-use Session;
-use App\Models\Users;
+
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function signin(){
+    function login(){
         return view('login');
     }
 
-    public function customLogin(Request $request){
-        $validator = $request->validate([
+    function loginPost(Request $request){
+        $request->validate([
             'email' => 'required',
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email','password');
+        $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
+            return redirect()->intended(route('home'));
         }
-        $validator['emailPassword'] = 'Email or Password is incorrect';
-        return redirect("login")->withErrors($validator);
+        return redirect(route('login'))->with("error","Invalid email or password");
     }
 
-    public function registration(){
+    public function signup(){
         return view('signup');
     }
 
-    public function customRegistration(Request $request){
+    function registerPost(Request $request){
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:user',
-            'password' => 'required|min:6'
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
         ]);
 
-        $data = $request->all();
-        $check = $this->create($data);
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
 
-        return redirect("dashboard")->withSuccess('You have signed in');
+        $user = User::create($data);
+
+        if(!$user){
+            return redirect(route('registration'))->with("error","Error registering user");
+        }
+        return redirect(route('login'))->with("success","Account successfully created");
     }
 
-    public function create(array $data){
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
-    }
-    
-    public function signOut(){
+    function logout(){
         Session::flush();
         Auth::logout();
-
-        return Redirect('login');
+        return redirect(route('login'));
     }
 }

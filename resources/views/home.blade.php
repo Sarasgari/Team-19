@@ -20,41 +20,8 @@
 </head>
 <header>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <div>
-      <a class="navbar-brand" href="#">
-        <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
-        GameDen
-      </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        <!-- Updated Cart Icon (Bag) -->
-        <li class="nav-item"><a class="nav-link" href="{{ route('Basket') }}">
-          <i class="fas fa-shopping-bag"></i>
-        </a></li>
-        <!-- Search Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-search"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
+  <!-- Navbar -->
+  @include('include.header')
   <!-- Hero Section -->
   <section class="hero-section position-relative">
     <!-- Background Video -->

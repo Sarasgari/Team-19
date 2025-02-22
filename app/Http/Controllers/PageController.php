@@ -9,15 +9,10 @@ class PageController extends Controller
     public function signup(){
         return view('signup');
     }
-    
-    public function signin(){
-        return view('login');
-    }
 
     public function home(){
         return view('home');
     }
-
 
     public function products(){
         return view('products');
@@ -38,7 +33,7 @@ class PageController extends Controller
         return view('contactus'); 
     }
 
-   
+    
 
     public function login()
     {
