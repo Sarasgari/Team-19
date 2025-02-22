@@ -38,10 +38,7 @@ class PageController extends Controller
         return view('contactus'); 
     }
 
-    public function signup()
-    {
-        return view('Signup'); 
-    }
+   
 
     public function login()
     {
@@ -61,6 +58,11 @@ class PageController extends Controller
     public function game()
     {
         return view('game'); 
+    }
+
+    public function admin()
+    {
+        return view('admin'); 
     }
 
 }
