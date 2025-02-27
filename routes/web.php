@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\CartController;
 
 //URLs
 Route::get('/', function () {
@@ -35,3 +35,11 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
+
+
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/basket', [CartController::class, 'viewCart'])->name('Basket');
+Route::post('/cart/remove/{id}', 'CartController@remove')->name('cart.remove');
+
