@@ -22,13 +22,7 @@
 <body>
   <!-- Navbar -->
   @include('include.header')
-  <div id="google_translate_element"></div>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-}
-</script>
-
+  
   <!-- Hero Section -->
   <section class="hero-section position-relative">
   
@@ -235,8 +229,18 @@ function googleTranslateElementInit() {
       <p>
         <a href="#" class="text-white me-2">Privacy Policy</a> | 
         <a href="#" class="text-white ms-2">Terms of Service</a>
+        
+
       </p>
-    </div>
+      <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </footer>
 
   <!-- chatot -->
