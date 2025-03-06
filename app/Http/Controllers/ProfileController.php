@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ProfileController extends Controller
 {
+    public function index(): View
+    {
+        return view(view: 'profile');
+    }
     public function settings()
     {
         return view('settings');
