@@ -34,6 +34,15 @@
           <li class="nav-item"><a class="nav-link" href="{{ route('contactus') }}">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Register</a></li>
 
+          @if(Auth::check())
+            <li class="nav-item"><a class="nav-link" href="{{ route('settings.page') }}">Settings</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+          @else
+            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+          @endif
+
+
         </ul>
       </div>
     </div>
