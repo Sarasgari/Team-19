@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controller\ProfileController;
 
 //URLs
 Route::get('/', function () {
@@ -43,3 +43,4 @@ Route::get('/admin', [PageController::class, 'admin'])->name('admin');
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
