@@ -117,6 +117,13 @@
     <div class="main-title">Games</div>
   </div>
 
+  <!-- Search bar -->
+  <div>
+    <form>
+      <input placeholder="Search">
+    </form>
+  </div>
+
   <!-- Maain content seciton -->
   <div class="container">
     <!-- PS5 section -->
