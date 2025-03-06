@@ -119,6 +119,7 @@
 </head>
 
 @section('body')
+
   <!-- Main title for the page  -->
   <div class="container">
     <div class="main-title">Games</div>

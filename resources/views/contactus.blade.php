@@ -48,29 +48,7 @@
     </style>
 </head>
 <body>
-   <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <div>
-      <a class="navbar-brand" href="#">
-        <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
-        GameDen
-      </a>
-    </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('products') }}">products</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('aboutus') }}">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('Basket')}}">Cart</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Register</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+@include('include.header')
 
     <div class="contact-container">
         <h1>Contact Us</h1>

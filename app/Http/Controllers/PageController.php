@@ -33,6 +33,13 @@ class PageController extends Controller
         return view('contactus'); 
     }
 
+    
+
+    public function login()
+    {
+        return view('Login'); 
+    }
+
     public function paymentform()
     {
         return view('PaymentForm'); 
@@ -46,6 +53,11 @@ class PageController extends Controller
     public function game()
     {
         return view('game'); 
+    }
+
+    public function admin()
+    {
+        return view('admin'); 
     }
 
 }

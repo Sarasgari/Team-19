@@ -37,6 +37,7 @@ Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 
 Route::get('/game', [PageController::class, 'game'])->name('game');
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/admin', [PageController::class, 'admin'])->name('admin');
 
 //basket commands
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
