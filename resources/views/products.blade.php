@@ -118,10 +118,9 @@
   </div>
 
   <!-- Search bar -->
-  <div>
-    <form>
-      <input placeholder="Search">
-    </form>
+  <div class="containter" style="text-align:center">
+    <input id="inputText" placeholder="Search" style="width:50%">
+    <button onclick="highlight(document.getElementById('inputText').value)">Submit</button>
   </div>
 
   <!-- Maain content seciton -->
@@ -607,4 +606,12 @@
     </div>
   </div>
 </div>
+
+<script>
+  function highlight(value) {
+    var innerHTML = value.innerHTML
+    var index = innerHTML.indexOf(value);
+    alert(index);
+  }
+</script>
 @endsection
