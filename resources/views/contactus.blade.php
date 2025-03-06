@@ -107,6 +107,28 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+ <!-- Footer -->
+ <footer class="py-4">
+    <div class="footer">
+      <p>© 2024 GameDen. All Rights Reserved.</p>
+      <p>
+        <a href="#" class="text-white me-2">Privacy Policy</a> | 
+        <a href="#" class="text-white ms-2">Terms of Service</a>
+        
+
+      </p>
+      <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </footer>
+  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
   <script>
