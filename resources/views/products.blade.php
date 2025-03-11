@@ -611,9 +611,8 @@
 </div>
 
 <!-- Footer -->
-
 <footer class="py-4">
-    <div class="footer">
+    <div class="container text-center">
       <p>© 2024 GameDen. All Rights Reserved.</p>
       <p>
         <a href="#" class="text-white me-2">Privacy Policy</a> | 
@@ -631,7 +630,6 @@ function googleTranslateElementInit() {
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </footer>
-
 @endsection
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
