@@ -1,3 +1,7 @@
+<!--Developer: Eyad Al Saher, Minwoo Noh, Mohammed Rahman, Sara Asgari
+University ID: 230047989, 230409589, 220083681, 230344431
+Function : SignUp page enable the Signup to the website and enjoy with the features
+-->
 <head>
     <link rel="stylesheet" href="{{asset('SignupLogin.css')}}"/>
     <link rel="stylesheet" href="{{asset('stylesheet.css')}}"/>
