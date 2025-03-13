@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id('gameid');
+            $table->bigIncrements('gameid'); 
             $table->string('title');
-            $table->string('description');
-            $table->float('price');
+            $table->text('description'); 
+            $table->decimal('price', 10, 2); 
             $table->date('releasedate');
+            $table->integer('stock')->default(0); 
+            $table->string('platform');
+            $table->timestamps(); 
         });
     }
 

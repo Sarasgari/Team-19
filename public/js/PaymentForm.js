@@ -54,7 +54,7 @@ function Formcomplete() {
 
     if (form.checkValidity()) {
         if (validCVV() && validCardNumber() && validExpDate()) {
-            window.location.href = "{{ route('payment') }}";
+            window.location.href = paymentRoute;
         }
     } else {
         form.reportValidity();
@@ -62,5 +62,5 @@ function Formcomplete() {
 }
 
 function redirectToHome() {
-    window.location.href = "{{ route('home') }}";
+    window.location.href = homeRoute;
 }

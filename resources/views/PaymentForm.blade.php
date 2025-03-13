@@ -44,7 +44,11 @@
 
     <button class="box3" type="button" onclick="Formcomplete()">Pay Now</button>
     <button class="box3" type="button" onclick="redirectToHome()">Cancel</button>
-
+    <script>
+    var paymentRoute = "{{ route('payment') }}"; 
+    var homeRoute = "{{ route('home') }}"; 
+    
+</script>
 
     <script src="{{ asset('js/PaymentForm.js') }}"></script>
 </form>
