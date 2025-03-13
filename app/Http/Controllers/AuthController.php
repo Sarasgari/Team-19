@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-// Developers: Mohammed Rahman, Minwoo Noh
-// Student Numbers: 220083681, 230409589
+// Developers: Mohammed Rahman, Minwoo Noh, Sara Asgari
+// Student Numbers: 220083681, 230409589, 230344431
 // Description: Controller files that hosts the signup, login and logout processes
 
 
