@@ -49,18 +49,23 @@
 
     <div class="contact-container">
         <h1>Contact Us</h1>
-        <form action="contact.php" method="POST">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
-            
-            <input type="submit" value="Send Message">
+        <form action="{{ route('contact.store') }}" method="POST">
+    @csrf
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+
+    <input type="submit" value="Send Message">
         </form>
+
+    @if(session('success'))
+        <p style="color: green;">{{ session('success') }}</p>
+    @endif
 
         <!-- Added Social Media Buttons -->
         <div class="social-buttons">

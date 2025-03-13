@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 
 
 //URLs
@@ -48,6 +49,7 @@ Route::get('/basket', [PageController::class, 'basket'])->name('Basket');
 Route::get('/aboutus', [PageController::class, 'aboutus'])->name('aboutus');
 
 Route::get('/contactus', [PageController::class, 'contactus'])->name('contactus');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/paymentform', [PageController::class, 'paymentform'])->name('paymentform');
 
@@ -58,6 +60,8 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [PageController::class, 'admin'])->name('admin'); 
 });
+Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('auth');
+
 
 //basket commands
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
