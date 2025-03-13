@@ -17,12 +17,10 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <div>
       <a class="navbar-brand" href="#">
         <img src="{{ asset('image/logo.png') }}" alt="GameDen Logo" class="d-inline-block align-text-top" style="height: 40px;">
         GameDen
       </a>
-    </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -41,58 +39,64 @@
   <!-- Main Content -->
   <main>
     <div class="background">
-      <!-- Basket Container -->
-      <div class="basket-container">
-        <h1>Your Basket</h1>
+     <!-- Basket Container -->
+<div class="basket-container">
+    <h1>Your Basket</h1>
 
-        @if(session('cart') && count(session('cart')) > 0)
-          <form action="{{ route('cart.update') }}" method="POST">
+    @if(collect($cart)->count() > 0)
+        <form action="{{ route('cart.update') }}" method="POST"> <!-- Fix route -->
             @csrf
             <table class="table table-bordered">
-              <thead class="table-dark">
-                <tr>
-                  <th>Game</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach(session('cart') as $id => $details)
-                  <tr>
-                    <td>{{ $details['name'] }}</td>
-                    <td>£{{ number_format($details['price'], 2) }}</td>
-                    <td>
-                      <input type="number" name="quantities[{{ $id }}]" value="{{ $details['quantity'] }}" min="1" class="form-control" style="width: 70px;">
-                    </td>
-                    <td>£{{ number_format($details['quantity'] * $details['price'], 2) }}</td>
-                    <td>
-    <form action="{{ route('cart.remove', $id) }}" method="POST">
-        @csrf
-        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-    </form>
+                <thead class="table-dark">
+                    <tr>
+                        <th>Game</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Stock</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($cart as $item)
+                        <tr>
+                        <td>{{ isset($item->game) ? $item->game->title : ($item['title'] ?? 'N/A') }}</td>
+                        <td>£{{ number_format(isset($item->game) ? $item->game->price : ($item['price'] ?? 0), 2) }}</td>
+
+                        <td>
+    <input type="number" name="quantities[{{ isset($item->id) ? $item->id : $loop->index }}]" 
+           value="{{ isset($item->quantity) ? $item->quantity : ($item['quantity'] ?? 1) }}" 
+           min="1" 
+           max="{{ isset($item->game) ? $item->game->stock : 99 }}" 
+           class="form-control" style="width: 70px;">
 </td>
 
-                  </tr>
-                @endforeach
-              </tbody>
+                            <td>{{ $item->game->stock ?? 'N/A' }}</td>
+                            <td>£{{ number_format((isset($item->game) ? $item->game->price : ($item['price'] ?? 0)) * (isset($item->quantity) ? $item->quantity : ($item['quantity'] ?? 1)), 2) }}</td>
+
+                            <td>
+                                <form action="{{ route('cart.remove', $item->id ?? $loop->index) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
             <button type="submit" class="btn btn-primary">Update Cart</button>
-          </form>
+        </form>
 
-          <h3 class="mt-3">Total: £{{ number_format(array_sum(array_map(function ($details) {
-              return $details['quantity'] * $details['price'];
-          }, session('cart'))), 2) }}</h3>
+        <h3 class="mt-3">Total: £{{ number_format(collect($cart)->sum(fn($item) => ($item->game->price ?? $item['price']) * ($item->quantity ?? $item['quantity'])), 2) }}</h3>
 
-        @else
-          <p class="text-danger">Your cart is empty!</p>
-        @endif
+    @else
+        <p class="text-danger">Your cart is empty!</p>
+    @endif
 
-        <a href="{{ route('products') }}" class="btn btn-secondary">Continue Shopping</a>
-        <a href="{{ route('paymentform') }}" class="btn btn-success">Proceed to Payment</a>
-      </div>
-    </div>
+    <a href="{{ route('products') }}" class="btn btn-secondary">Continue Shopping</a>
+    <a href="{{ route('cart.checkout') }}" class="btn btn-success">Proceed to Payment</a>
+</div>
+
   </main>
 
   <!-- Footer -->
