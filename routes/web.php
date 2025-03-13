@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
@@ -9,6 +12,21 @@ use App\Http\Controllers\AuthController;
 //URLs
 Route::get('/', function () {
     return view('home');
+});
+// Restrict access to the admin panel using middleware
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+Route::middleware(['auth'])->group(function () {
+    // Redirect admins to the admin panel
+    Route::get('/login', function () {
+        if (Auth::user() && Auth::user()->is_admin) {
+            return redirect('/admin');
+        }
+
+        return redirect('/home');
+    });
 });
 
 Auth::routes();
@@ -37,9 +55,13 @@ Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 
 Route::get('/game', [PageController::class, 'game'])->name('game');
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/admin', [PageController::class, 'admin'])->name('admin');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [PageController::class, 'admin'])->name('admin'); 
+});
 
 //basket commands
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
+
+

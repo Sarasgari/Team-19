@@ -25,6 +25,10 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){
+            $user = Auth::user();
+            if ($user->is_admin) {
+                return redirect()->intended(route('admin'));
+            }
             return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error","Invalid email or password");
