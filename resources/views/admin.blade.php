@@ -209,8 +209,8 @@
         <ul class="nav flex-column w-100">
             <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-home me-2"></i> Home</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-box me-2"></i> Products</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart me-2"></i> Orders</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.products') }}"><i class="fas fa-box me-2"></i> Products</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.orders') }}"><i class="fas fa-shopping-cart me-2"></i> Orders</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-users me-2"></i> Users</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
         </ul>

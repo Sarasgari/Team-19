@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function admin()
     {
-        return view('admin.dashboard'); // Create this view later
+        return view('admin'); 
+    }
+
+    public function products()
+    {
+         return view('admin.products'); 
+    }
+
+    public function orders()
+    {
+         return view('admin.orders'); 
     }
 }
