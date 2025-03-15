@@ -58,7 +58,9 @@ Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 Route::get('/game', [PageController::class, 'game'])->name('game');
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', [PageController::class, 'admin'])->name('admin'); 
+    Route::get('/admin', [AdminController::class, 'admin'])->name('admin'); 
+    Route::get('admin/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
 });
 Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('auth');
 
