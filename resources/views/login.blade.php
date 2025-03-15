@@ -111,6 +111,7 @@ Function : Login page enable the login to the website and enjoy with the feature
                 
 
                 <p>Don't have an account? <a href="{{ route('signup') }}" style="color: #007bff;">Sign up</a></p> <!-- Change link color to primary -->
+                <button type="submit" class="btn btn-primary btn-block">Log In</button> <!-- Added login button -->
                 <a href="{{ route('home') }}" class="btn btn-secondary btn-block">Back to Home</a>
             </form>
         </div>
