@@ -15,6 +15,23 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            position: relative;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Background Image */
+        body::before {
+            content: '';
+            background-image: url("{{ asset('image/background.png') }}");  /* Update with the correct image path */
+            background-attachment: fixed; /* Keep the background fixed */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
         }
 
         /* About Container */
@@ -22,12 +39,13 @@
             max-width: 960px;
             margin: 0 auto;
             padding: 20px;
+            position: relative; /* Ensure content is above the background */
         }
 
         /* Intro Box */
         .intro-box {
             padding: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -47,10 +65,16 @@
         /* Content Boxes */
         .content-box {
             padding: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .content-box:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .content-box h2 {
@@ -74,10 +98,15 @@
         .cta-box {
             text-align: center;
             padding: 30px;
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
             color: white;
             border-radius: 8px;
             margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-box:hover {
+            background-color: rgba(68, 68, 68, 0.9);
         }
 
         .cta-box .cta-text {
@@ -229,8 +258,6 @@
       <p>
         <a href="#" class="text-white me-2">Privacy Policy</a> | 
         <a href="#" class="text-white ms-2">Terms of Service</a>
-        
-
       </p>
       <div id="google_translate_element"></div>
 

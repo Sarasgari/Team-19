@@ -10,8 +10,10 @@ Function : Login page enable the login to the website and enjoy with the feature
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Light background color */
+            background: url('image/background.jpg') no-repeat center center fixed; /* Add background image */
+            background-size: cover; /* Ensure the background covers the entire area */
             color: #333; /* Dark text for better readability */
+             
         }
 
         .container {
@@ -23,11 +25,11 @@ Function : Login page enable the login to the website and enjoy with the feature
 
         .form {
             background: #fff; /* White background for the form */
-            padding: 30px;
+            padding: 40px; /* Increased padding for better spacing */
             border-radius: 8px;
             width: 100%;
             max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
         }
 
         h2 {
@@ -94,7 +96,7 @@ Function : Login page enable the login to the website and enjoy with the feature
 
             <form action="{{route('loginpost')}}" method="POST">
                 @csrf
-                <h2>Log In</h2>
+                <h2 style="color: #007bff;">Log In</h2> <!-- Change header color to primary -->
 
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -106,9 +108,9 @@ Function : Login page enable the login to the website and enjoy with the feature
                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                
 
-                <p>Don't have an account? <a href="{{ route('signup') }}">Sign up</a></p>
+                <p>Don't have an account? <a href="{{ route('signup') }}" style="color: #007bff;">Sign up</a></p> <!-- Change link color to primary -->
                 <a href="{{ route('home') }}" class="btn btn-secondary btn-block">Back to Home</a>
             </form>
         </div>

@@ -1,7 +1,7 @@
 <!--
   Developer: Fatima Mansur
   University ID: 230274345
-  Function: Contact us allowes the user to communicate with the website developers
+  Function: Contact us allows the user to communicate with the website developers
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,30 @@
     <link rel="stylesheet" href="{{ asset('css/countactaboutus.css') }}">
     
     <style>
+        /* Background Image */
+        body::before {
+            content: '';
+            background-image: url("{{ asset('image/background.png') }}");  /* Update with the correct image path */
+            background-attachment: fixed; /* Keep the background fixed */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .contact-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto; /* Center the form */
+            max-width: 600px; /* Limit the width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+
         .social-buttons {
             display: flex;
             justify-content: center;
@@ -95,8 +119,6 @@
       <p>
         <a href="#" class="text-white me-2">Privacy Policy</a> | 
         <a href="#" class="text-white ms-2">Terms of Service</a>
-        
-
       </p>
       <div id="google_translate_element"></div>
 
@@ -113,4 +135,3 @@ function googleTranslateElementInit() {
   <script src="script.js"></script>
   <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="9PWNMB1p2CzJaFsLkUCRE";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
