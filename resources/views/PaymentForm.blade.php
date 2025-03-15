@@ -44,15 +44,14 @@
 
     <button class="box3" type="button" onclick="Formcomplete()">Pay Now</button>
     <button class="box3" type="button" onclick="redirectToHome()">Cancel</button>
-
+    <script>
+    var paymentRoute = "{{ route('payment') }}"; 
+    var homeRoute = "{{ route('home') }}"; 
+    
+</script>
 
     <script src="{{ asset('js/PaymentForm.js') }}"></script>
 </form>
 
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
-  <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="9PWNMB1p2CzJaFsLkUCRE";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
