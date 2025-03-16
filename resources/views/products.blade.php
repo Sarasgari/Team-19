@@ -19,8 +19,8 @@
 }
 
 .game-card {
-    width: 280px; 
-    height: auto;
+    width: 200px; 
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     border-radius: 8px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
-    padding: 10px; 
+    padding: 20px; 
 }
 
 .game-card:hover {
@@ -37,7 +37,7 @@
 }
 
 .game-card img {
-    height: 280px; 
+    height: 250px; 
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -83,17 +83,17 @@
 }
 
 .category-title {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 100px;
+    margin-bottom: 10px;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1px;
 }
 
 .cart-btn {
-    background-color: #ff5733;
+    background-color:rgb(236, 89, 56);
     color: white;
     border: none;
     z-index: 10; 
@@ -106,7 +106,7 @@
 }
 
 .cart-btn:hover {
-    background-color: #c13d23;
+    background-color:rgb(248, 45, 4);
     transform: scale(1.05);
 }
 
@@ -121,7 +121,7 @@
 }
 
 .game-card .card-title {
-    font-size: 0.9rem; 
+    font-size: 15px; 
     font-weight: bold; 
     text-align: center; 
 }
@@ -169,6 +169,9 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $game->title }}</h5>
+                    <div class="rating">
+                        <span class="text-warning">⭐ 4.5</span> <!-- Static rating for now -->
+                    </div>
                     <p class="card-text">£{{ number_format($game->price, 2) }}</p>
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
@@ -244,7 +247,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $game->title }}</h5>
                     <div class="rating">
-                        <span class="text-warning">⭐ 4.7</span> <!-- Static rating for now -->
+                        <span class="text-warning">⭐ 4.8</span> <!-- Static rating for now -->
                     </div>
                     <p class="card-text">£{{ number_format($game->price, 2) }}</p>
                     <form action="{{ route('cart.add') }}" method="POST">
@@ -282,6 +285,9 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $game->title }}</h5>
+                    <div class="rating">
+                        <span class="text-warning">⭐ 4.6</span> <!-- Static rating for now -->
+                    </div>
                     <p class="card-text">£{{ number_format($game->price, 2) }}</p>
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
@@ -323,6 +329,9 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ $game->title }}</h5>
+                    <div class="rating">
+                        <span class="text-warning">⭐ 4.6</span> <!-- Static rating for now -->
+                    </div>
                     <p class="card-text">£{{ number_format($game->price, 2) }}</p>
                     <form action="{{ route('cart.add') }}" method="POST">
                         @csrf
