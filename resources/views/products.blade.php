@@ -16,6 +16,7 @@
     background-attachment: fixed; 
     background-position: center; 
     color: white; 
+    overflow-x: hidden;
 }
 
 .game-card {
@@ -27,10 +28,11 @@
     position: relative;
     overflow: hidden;
     border-radius: 15px;
-    margin:30px;
+    margin:20px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
-    padding: 20px; 
+    padding: 15px; 
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .game-card:hover {
