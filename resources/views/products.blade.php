@@ -191,8 +191,14 @@
             </form>
         </div>
     </div>
-</div>
-            
+
+    <!-- Search Bar -->
+    <div class="col-md-9 d-flex align-items-center mb-3">
+        <div class="d-flex w-100">
+            <button class="btn btn-primary rounded-end" id="searchButton"><i class="fas fa-search"></i></button>
+            <input type="text" class="form-control" placeholder="Search for games..." id="searchBar">
+        </div>
+    </div>
 </div>
 
 <!-- Main content section for games -->
