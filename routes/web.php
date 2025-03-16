@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controller\ProfileController;
+use App\Http\Controllers\ProfileController;
 
 //URLs
 Route::get('/', function () {
@@ -46,6 +46,8 @@ Route::post('cart/update',[BasketController::class, 'update'])->name('cart.updat
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/settings', [ProfileController::class, 'settings'])->name('settings.page');
-    Route::put('/settings/update', [ProfileController::class, 'updateSettings'])->name('settings.update');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 });
+
+

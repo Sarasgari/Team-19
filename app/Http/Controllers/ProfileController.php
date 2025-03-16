@@ -3,36 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function index(): View
+    public function profile()
     {
-        return view(view: 'profile');
+        return view('profile', ['user' => Auth::user()]);
     }
-    public function settings()
-    {
-        return view('settings');
-    }
-
-    public function updateSettings(Request $request)
+    public function updateProfile(Request $request)
     {
         $user = Auth::user();
 
         $request->validate([
             'username' => 'required|string|max:255',
-            'password' => 'nullable|string|min:6'
+            'password' => 'nullable|string|min:6',
         ]);
 
-        $user->username = $request->username;
+        $user->name = $request->input('username');
 
-        if ($request->password) {
-            $user->password = Hash::make($request->password);
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
         }
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Succeed!');
+        return redirect()->route('home')->with('success', 'Profile updated successfully!');
     }
 }
