@@ -147,12 +147,55 @@
   @include('include.header')
 
   <!-- Main title for the page  -->
-  <div class="container">
+<div class="container">
     <div class="main-title">Games</div>
-  </div>
+    
+    <!-- Filter Form -->
+<div class="row">
+    <div class="col-md-3">
+        <!-- Toggle Filters Button -->
+        <button id="filterToggle" class="btn btn-outline-primary w-100 mb-3">
+            <i class="fas fa-filter"></i> Filters
+        </button>
 
-  <!-- Main content seciton -->
+        <div class="filter-form p-3 rounded shadow-sm d-none" id="filterOptions" style="background-color: white;">
+            <form id="filterForm">
+                <div class="mb-3">
+                    <label for="platform" class="form-label fw-bold">Platform</label>
+                    <select id="platform" class="form-select">
+                        <option value="">Select Platform</option>
+                        <option value="PS5">PS5</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="Nintendo Switch">Nintendo Switch</option>
+                        <option value="PS4">PS4</option>
+                        <option value="PC">PC</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="releaseDate" class="form-label fw-bold">Release Date</label>
+                    <select id="releaseDate" class="form-select">
+                        <option value="">Select Release Date</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
 
+                <div class="mb-3">
+                    <label for="priceRange" class="form-label fw-bold">Price Range</label>
+                    <input type="range" id="priceRange" class="form-range" min="0" max="100" step="1" value="50">
+                    <div class="text-muted">Price: £<span id="priceValue">50</span></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+            </form>
+        </div>
+    </div>
+</div>
+            
+</div>
+
+<!-- Main content section for games -->
   <!--PS5 section--> 
 
   <div id="ps5" class="category">
@@ -383,6 +426,37 @@ function googleTranslateElementInit() {
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterToggle = document.getElementById("filterToggle");
+        const filterOptions = document.getElementById("filterOptions");
+        const priceRange = document.getElementById("priceRange");
+        const priceValue = document.getElementById("priceValue");
+
+        // Toggle filter options using Bootstrap classes
+        filterToggle.addEventListener("click", function () {
+            filterOptions.classList.toggle("d-none");
+            filterOptions.classList.toggle("fade-in");
+        });
+
+        // Update price range display
+        priceRange.addEventListener("input", function () {
+            priceValue.textContent = priceRange.value;
+        });
+    });
+
+    // Add CSS animations dynamically
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
 </body>
 </html>
-
