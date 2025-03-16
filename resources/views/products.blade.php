@@ -154,7 +154,7 @@
 <div class="row">
     <div class="col-md-3">
         <!-- Toggle Filters Button -->
-        <button id="filterToggle" class="btn btn-outline-primary w-100 mb-3">
+        <button id="filterToggle" class="btn btn-primary w-100 mb-3">
             <i class="fas fa-filter"></i> Filters
         </button>
 
