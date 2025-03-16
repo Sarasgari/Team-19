@@ -26,7 +26,8 @@
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 15px;
+    margin: 0px 30px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
     padding: 20px; 
