@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameDen - Your Gaming Paradise</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   <style>
     
     body { 
@@ -27,7 +27,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 15px;
-    margin: 0px 30px;
+    margin:30px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
     padding: 20px; 
@@ -84,7 +84,7 @@
 }
 
 .category-title {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 2rem;
@@ -346,10 +346,6 @@
         </div>
         @endforeach
 
-        <!-- Fill empty spaces to balance the row -->
-        @for ($i = $games->where('platform', 'PC')->count(); $i < 5; $i++)
-        <div class="col"></div>
-        @endfor
     </div>
 </div>
 
