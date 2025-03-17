@@ -1,4 +1,3 @@
-<!-- Eyad Alsaher 230047989 && Mohamed sharif 230228898 -->
 <?php
 
 namespace App\Http\Controllers;
