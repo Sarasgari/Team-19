@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cart extends Model
+class Cart extends Model
 {
-    protected $fillable = ['user_id', 'product_id', 'quantity', 'total'];
+    use HasFactory;
 
-    public function user()
+    protected $fillable = ['user_id', 'game_id', 'quantity'];
+
+    public function game()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Game::class);
     }
-
-   
 }
