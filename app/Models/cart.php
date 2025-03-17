@@ -1,4 +1,3 @@
-<!-- Eyad Alsaher 230047989 -->
 <?php
 
 namespace App\Models;
