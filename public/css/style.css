@@ -1,86 +1,85 @@
-    /* Custom Styles */
+/* Custom Styles */
 
-  
-    body {
-      font-family: 'Arial', sans-serif;
-     background-color: #f8f9fa;
-    }
-    
-    .navbar-brand {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
+/* Light Mode (Default) */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
 
-    .card:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-      }
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
 
-      .btn {
-        border-radius: 50px;
-        padding: 10px 30px;
-        font-size: 1rem; 
-        text-align: center; 
-        display: inline-block; 
-    }
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 
-    .btn:hover {
-      background: rgb(51, 0, 255); 
-    }
-      
-    /*hero*/
-     .hero-section {
-      position: relative;
-      color: white;
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden; 
-    }
-    
-    .hero-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; 
-      z-index: -1; 
-    }
+.btn {
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  text-align: center;
+  display: inline-block;
+}
 
-    .hero-content {
-       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-       z-index: 1; 
-    }
+.btn:hover {
+  background: rgb(51, 0, 255);
+}
 
-    
-    /*slogan*/
-      .slogan-section {
-        background-color: #f4f6f8; 
-        padding: 100px ; 
-        text-align: center; 
-      }
-      
-      .slogan-section h1 {
-        font-size: 4rem; 
-        font-weight: bold;
-        color: #333; 
-        margin-bottom: 20px; 
-      }
-      
-      .slogan-section p {
-        font-size: 1.1rem; 
-        font-weight: bold;
-        color: #555; 
-        line-height: 1.8; 
-        max-width: 700px; 
-        margin: 0 auto; 
-      }
-      
-/*banner*/
+/* Hero Section */
+.hero-section {
+  position: relative;
+  color: white;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
 
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-content {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Slogan Section */
+.slogan-section {
+  background-color: #f4f6f8;
+  padding: 100px;
+  text-align: center;
+}
+
+.slogan-section h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.slogan-section p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #555;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Banner */
 .carousel-item {
   background-size: cover;
   background-position: center;
@@ -89,13 +88,13 @@
 
 .game-banners {
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .banner {
   height: 100vh;
-  background-size: cover; 
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +102,7 @@
 }
 
 .carousel-caption {
-  text-align:left;
+  text-align: left;
   position: absolute;
   bottom: 150px;
   left: 100px;
@@ -112,7 +111,7 @@
 }
 
 .carousel-caption h2 {
-  font-size: 3rem; 
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -120,78 +119,146 @@
 .carousel-caption a {
   font-size: 1.2rem;
   padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   text-decoration: none;
   border-radius: 50px;
 }
 
+/* Available Devices */
+.available-devices {
+  background-color: #f8f8f8;
+  padding: 100px 0;
+}
 
-      .available-devices {
-        background-color: #f8f8f8; 
-        padding: 100px 0; 
-      }
-      
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      
-      .container h2 {
-        font-size: 3rem;
-        margin-bottom: 30px;
-        color: #333; 
-      }
-      
-      .device-icons {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-bottom: 20px;
-      }
-      
-      .device-icons img {
-        width: 80px; 
-        height: auto;
-      }
-      
-      
-      .faq-section {
-        width: 80%;
-        margin: 0 auto;
-        font-family: Arial, sans-serif;
-      }
-      
-      .accordion-item{
-        margin: 15px 0;
-        border: none;
-        border-radius: 5px;
-        overflow: hidden;
-      }
-      
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-      .faq-section h2 {
-        font-weight: bold;
-        text-align: center;
-        font-size: 4rem;
-        color: #333; 
-      }
-      
-      .accordion-button:hover {
-        background-color: #e0e0e0;
-      }
-      
-     
+.container h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.device-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.device-icons img {
+  width: 80px;
+  height: auto;
+}
+
+/* FAQ Section */
+.faq-section {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.accordion-item {
+  margin: 15px 0;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-section h2 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+}
+
+.accordion-button:hover {
+  background-color: #e0e0e0;
+}
 
 .video-btn:hover {
   background: rgba(0, 0, 0, 0.9);
 }
-      
-    footer {
-      background-color: #212529;
-      color: white;
-    }
 
+/* Footer */
+footer {
+  background-color: #212529;
+  color: white;
+}
 
-  
+/* Dark Mode Styles */
+.darkmode {
+  background-color: #303132;
+  color: #ffffff;
+}
+
+.darkmode .navbar {
+  background-color: #212529;
+}
+
+.darkmode .slogan-section {
+  background-color: #303132;
+}
+
+.darkmode .slogan-section h1 {
+  color: #fbfbfb;
+}
+
+.darkmode .slogan-section p {
+  color: #f9f6f6;
+}
+
+.darkmode .carousel-caption {
+  color: #ffffff;
+}
+
+.darkmode .available-devices {
+  background-color: #3a3a3c;
+}
+
+.darkmode .container h2 {
+  color: #f9f7f7;
+}
+
+.darkmode .faq-section h2 {
+  color: #f0ecec;
+}
+
+.darkmode .accordion-button:hover {
+  background-color: #4b4b4b;
+}
+
+/* Dark Mode Button */
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#theme-switch svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hide/Show Dark Mode Icons */
+.darkmode #dark-icon {
+  display: none;
+}
+
+.darkmode #light-icon {
+  display: inline;
+}
+
+#light-icon {
+  display: none;
+}

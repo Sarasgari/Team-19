@@ -24,6 +24,17 @@
       </ul>
 
       <ul class="navbar-nav">
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-switch" class="btn btn-outline-light me-3">
+          <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M450-120q-133 0-226.5-93.5T130-440q0-112 66-197t166-117q-1 5-1 10.5v10.5q0 125 88 213t213 88h10.5q5 0 10.5-1-28 100-113 166t-197 66Zm30-160q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0-200Z"/>
+          </svg>
+
+          <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" style="display: none;">
+            <path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/>
+          </svg>
+        </button>
+
         @guest
           <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -37,7 +48,7 @@
               Welcome, {{ auth()->user()->name }}!
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-              <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
+              <li><a class="dropdown-item">Profile</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item text-danger" href="{{ route('logout') }}">Logout</a></li>
             </ul>
@@ -53,3 +64,6 @@
     </div>
   </div>
 </nav>
+
+<!-- Include JavaScript for Dark Mode -->
+<script src="{{ asset('js/dark-mode.js') }}" defer></script>

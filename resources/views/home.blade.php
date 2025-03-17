@@ -4,6 +4,7 @@
   Function: Home page is the first page a customer visits. Contains links to the producs and a login
 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+  <script>
+    (function() {
+      if (localStorage.getItem("darkmode") === "enabled") {
+        document.documentElement.classList.add("darkmode");
+      }
+    })();
+  </script>
+  
 </head>
 <header>
 <body>
@@ -245,11 +253,15 @@ function googleTranslateElementInit() {
 
   <!-- chatot -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
   <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="9PWNMB1p2CzJaFsLkUCRE";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
+<script src="{{ asset('js/dark-mode.js') }}"></script>
+
 
   
 </body>
 </html>
+
+
