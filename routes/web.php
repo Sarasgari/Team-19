@@ -8,6 +8,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingController;
 
 
 //URLs
@@ -61,6 +63,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin'); 
     Route::get('admin/products', [AdminController::class, 'products'])->name('admin.products');
     Route::get('admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
+    // Eyad Alsaher 230047989 
+    Route::get('admin/users', [UserController::class, 'index'])->name('admin.users');
+    Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit'); // Get user details
+    Route::get('/admin/users/{id}/profile/', [UserController::class, 'showProfile'])->name('admin.users.profile');
+    Route::post('admin/users/{id}/update', [UserController::class, 'update'])->name('admin.users.update'); // Update user
+    Route::delete('admin/users/{id}/delete', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::get('admin/settings', [SettingController::class, 'index'])->name('admin.settings');
+    Route::post('admin/settings/update', [SettingController::class, 'update'])->name('admin.settings.update');
 });
 Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('auth');
 
