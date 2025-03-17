@@ -42,6 +42,19 @@
     </div>
   </section>
 
+  <div class="popup-container" id="popup">
+        <div class="popup-box">
+            <button class="close-btn" onclick="closePopup()">X</button>
+            <img src="{{ asset('image/sale.webp') }}" alt="Popup Image">
+
+        </div>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
   
   <!-- Featured Games -->
   <section class="container my-5">
@@ -216,7 +229,6 @@
     </div>
   </div>
 </div>
-
 
 
 
