@@ -20,22 +20,6 @@
 
         
 
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 240px;
-            width: calc(100% - 240px);
-            height: 60px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
 
         .container-fluid {
             margin-left: 240px;
