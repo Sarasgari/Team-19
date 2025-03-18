@@ -2,11 +2,39 @@
 
 @section('page-css')
     <link href="{{ asset('css/product-management.css') }}" rel="stylesheet">
+    <style>
+        /* Make the table fully responsive */
+        .table-container {
+            overflow-x: auto; /* Allow horizontal scrolling when necessary */
+            max-width: 100%;   /* Ensure table doesn't exceed container width */
+        }
+
+        table {
+            width: 100%;
+            table-layout: auto; /* Auto layout to adjust based on content */
+            word-wrap: break-word; /* Allow word wrapping */
+        }
+
+        td, th {
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+            white-space: normal; /* Allow text to wrap within table cells */
+        }
+
+        /* Form visibility */
+        #addGameForm {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
 @endsection
 
 @section('content')
+    <!-- Button to toggle the form visibility -->
+    <button id="toggleFormBtn" class="btn btn-success mb-3">Add New Game</button>
+
     <!-- Add New Game Form -->
-    <div class="container">
+    <div class="container" id="addGameForm">
         <h2 class="my-4">Add New Game</h2>
         <form action="{{ route('games.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -49,51 +77,55 @@
     </div>
 
     <!-- Existing Games Table -->
-    <h2 class="my-4">All Games</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Release Date</th>
-                <th>Stock</th>
-                <th>Platform</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($games as $game)
+    <div class="content-wrapper" >
+    <h2 class="mb-4">Manage Products</h2>
+    <div class="table-container">
+        <table class="table table-bordered table-striped">
+            <thead>
                 <tr>
-                    <td>{{ $game->title }}</td>
-                    <td>{{ $game->description }}</td>
-                    <td>${{ $game->price }}</td>
-                    <td>{{ $game->release_date }}</td>
-                    <td>{{ $game->stock }}</td>
-                    <td>
-    @php
-        $platforms = json_decode($game->platforms, true); // Decode as an associative array
-        if (is_array($platforms)) {
-            echo implode(', ', $platforms);  // Implode if it's an array
-        } else {
-            echo $game->platforms;  // Display as a string if it's not a valid JSON array
-        }
-    @endphp
-</td>
-                    <td><img src="{{ asset('storage/'.$game->image) }}" alt="{{ $game->title }}" width="50"></td>
-                    <td>
-                        <a href="{{ route('games.edit', $game->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('games.destroy', $game->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </td>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Release Date</th>
+                    <th>Stock</th>
+                    <th>Platform</th>
+                    <th>Image</th>
+                    <th>Actions</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($games as $game)
+                    <tr>
+                        <td>{{ $game->title }}</td>
+                        <td>{{ $game->description }}</td>
+                        <td>${{ $game->price }}</td>
+                        <td>{{ $game->release_date }}</td>
+                        <td>{{ $game->stock }}</td>
+                        <td>
+                            @php
+                                $platforms = json_decode($game->platforms, true);
+                                if (is_array($platforms)) {
+                                    echo implode(', ', $platforms);
+                                } else {
+                                    echo $game->platforms;
+                                }
+                            @endphp
+                        </td>
+                        <td><img src="{{ asset('storage/'.$game->image) }}" alt="{{ $game->title }}" width="50"></td>
+                        <td>
+                            <a href="{{ route('games.edit', $game->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('games.destroy', $game->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
 @endsection
 
 @section('page-js')
@@ -127,6 +159,13 @@
                 event.preventDefault();
                 alert('Please fill in all required fields');
             }
+        });
+    </script>
+    <script>
+        // Toggle form visibility
+        document.getElementById('toggleFormBtn').addEventListener('click', function() {
+            const form = document.getElementById('addGameForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
         });
     </script>
 @endsection
