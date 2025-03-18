@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
     })->name('admin.redirect');
 });
 
+Route::get('/admin/users/{id}/profile', [UserController::class, 'showProfile'])->name('admin.users.profile');
+
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');

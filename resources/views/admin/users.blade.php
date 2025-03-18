@@ -18,21 +18,7 @@
             margin-top: 60px;
         }
 
-        /* Sidebar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 240px;
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            z-index: 1000;
-        }
+        
 
         /* Header */
         .header {
@@ -164,42 +150,11 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <nav class="navbar navbar-dark bg-dark p-3 shadow-lg">
-        <div class="text-center">
-            <a class="navbar-brand text-light d-block mx-auto mb-4" href="#">
-                <alt="GameDen" class="d-block mx-auto" style="height: 40px;">
-                <span class="small text-white-50"></span>
-            </a>
-        </div>
-        <ul class="nav flex-column w-100">
-            <li class="nav-item"><a class="nav-link text-white" href="admin.html"><i class="fas fa-home me-2"></i> Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="admin.html"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link text-white active" href="products.html"><i class="fas fa-box me-2"></i> Products</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart me-2"></i> Orders</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{route('admin.users')}}"><i class="fas fa-users me-2"></i> Users</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{route('admin.settings')}}"><i class="fas fa-cog me-2"></i> Settings</a></li>
-        </ul>
-        <div class="mt-auto text-center">
-            <a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
-        </div>
-    </nav>
+    
+@include('include.adminheader')
 
-    <!-- Header -->
-    <div class="header">
-        <div class="search-bar">
-            <input type="text" placeholder="Search users...">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="icons">
-            <div class="icon-container">
-                <i class="fas fa-bell fa-lg"></i>
-                <span class="notification-badge">3</span>
-            </div>
-            <!-- Profile Picture with Game Character Image -->
-            <img src="{{asset('image/profile-pic.jpg')}}" alt="Profile" class="profile-pic">
-        </div>
-    </div>
+@include('include.adminbar')
+
 
     <!-- Main Content -->
     <div class="container-fluid">

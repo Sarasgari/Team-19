@@ -1,3 +1,8 @@
+<!--
+  Developer: Sara Asgari
+  University ID: 230344431
+  Function: admin page layout and main page.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,45 +19,10 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <nav class="navbar navbar-dark bg-dark p-3 shadow-lg">
-        <div class="text-center">
-            <a class="navbar-brand text-light d-block mx-auto mb-4" href="#">
-                <img src="image/logo-removebg.png" alt="GameDen Logo" class="d-block mx-auto" style="height: 40px;">
-                <span class="small text-white-50">Admin Panel</span>
-            </a>
-        </div>
-        <ul class="nav flex-column w-100">
-            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin') }}"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.products') }}"><i class="fas fa-box me-2"></i> Products</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.orders') }}"><i class="fas fa-shopping-cart me-2"></i> Orders</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.users') }}"><i class="fas fa-users me-2"></i> Users</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="{{ route('admin.settings') }}"><i class="fas fa-cog me-2"></i> Settings</a></li>
-        </ul>
-        <div class="mt-auto text-center">
-            <a class="nav-link text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-        </div>
-    </nav>
+    @include('include.adminheader')
 
-    <!-- Header -->
-    <div class="header">
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="icons">
-            <div class="icon-container">
-                <i class="fas fa-bell fa-lg"></i>
-                <span class="notification-badge">3</span>
-            </div>
-            <!-- Profile Picture -->
-            <img src="image/profile-pic.jpg" alt="Profile" class="profile-pic">
-            
-        </div>
-    </div>
+    @include('include.adminbar')
+
 
     <!-- Stats Section -->
     <div class="fixed-stats">
