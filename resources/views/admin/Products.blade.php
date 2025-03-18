@@ -56,10 +56,9 @@
                         <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                         <div id="imagePreview" class="mt-3">
                             <img id="previewImg" src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" alt="Image Preview" style="display:none; max-width: 100%; height: auto;"/>
-                            
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Game</button>
+                    <button type="submit" class="btn btn-minimal">Add Game</button>
                 </form>
             </div>
         </div>
@@ -70,7 +69,7 @@
     <div class="content-wrapper">
         <h2 class="mb-4">Manage Products</h2>
         <!-- Button to trigger modal -->
-        <button id="toggleFormBtn" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addGameModal">
+        <button id="toggleFormBtn" class="btn btn-minimal mb-3" data-bs-toggle="modal" data-bs-target="#addGameModal">
             <i class="fas fa-plus"></i> Add New Game
         </button>
         <div class="table-container">
@@ -107,11 +106,11 @@
                             </td>
                             <td><img src="{{ asset('storage/'.$game->image) }}" alt="{{ $game->title }}" width="50"></td>
                             <td>
-                                <a href="{{ route('games.edit', $game->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                                <a href="{{ route('games.edit', $game->id) }}" class="btn btn-minimal btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                 <form action="{{ route('games.destroy', $game->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                                    <button type="submit" class="btn btn-minimal btn-sm"><i class="fas fa-trash"></i> Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -126,5 +125,4 @@
 @section('page-js')
     <!-- Add Bootstrap JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
 @endsection
