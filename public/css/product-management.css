@@ -1,80 +1,135 @@
-/* product-management.css */
 body {
-    background-color: #f4f4f9;
-    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fd;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #333;
 }
 
-/* Adjust for the content to not be hidden behind the sidebar */
+/* Content Wrapper */
 .content-wrapper {
     padding: 20px;
-    overflow-x: hidden; /* Prevents overflow of content */
+    min-height: 100vh;
+    width: 80%;
 }
 
+/* Table Styling */
 .table-container {
-    width: 80%;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
 }
 
 .table {
     width: 100%;
-    table-layout: auto; /* Adjust column widths automatically */
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
+    table-layout: auto;
+    border-collapse: collapse;
 }
 
 .table th, .table td {
-    padding: 12px;
+    padding: 14px;
     text-align: center;
     vertical-align: middle;
+    font-size: 14px;
+    transition: background 0.3s ease;
 }
 
 .table th {
-    background-color: #f8f9fa;
-    color: #495057;
+    background-color: #e3f2fd;
+    color: #1565c0;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .table td {
     background-color: #ffffff;
     color: #495057;
-    word-wrap: break-word; /* Allow long words to break and wrap */
-    white-space: normal; /* Prevent text from being forced into one line */
 }
 
+/* Hover Effects */
+.table tbody tr:hover {
+    background-color: #f0f8ff;
+    transform: scale(1.01);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Minimalist Buttons */
+.btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Button Styles */
 .btn-primary {
     background-color: #007bff;
-    border-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    opacity: 0.85;
 }
 
 .btn-danger {
     background-color: #dc3545;
-    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #b52b37;
+    opacity: 0.85;
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #ffca28;
+    color: #333;
 }
 
+.btn-warning:hover {
+    background-color: #e6b024;
+    opacity: 0.85;
+}
+
+/* Modal Styling */
 .modal-content {
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .modal-header {
     background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
 }
 
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #ccc;
+/* Icon Styling */
+.fas {
+    margin-right: 5px;
 }
 
-#imagePreview {
-    display: flex;
-    justify-content: center;
-}
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 15px;
+    }
 
-#previewImg {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        padding: 10px;
+        font-size: 13px;
+    }
 }
