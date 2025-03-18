@@ -3,27 +3,14 @@
   University ID: 230344431
   Function: admin page layout and main page.
 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameDen Admin Panel</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+@extends('layouts.admin')
+
+@section('page-css')
+    <!-- Add page-specific CSS (for dashboard page) -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-</head>
-<body>
+@endsection
 
-    @include('include.adminheader')
-
-    @include('include.adminbar')
-
-
+@section('content')
     <!-- Stats Section -->
     <div class="fixed-stats">
         <div class="row">
@@ -53,13 +40,11 @@
             </div>
         </div>
     </div>
+@endsection
 
-   
-
-    
-
+@section('page-js')
+    <!-- Add page-specific JS -->
     <script>
-        // Chart.js Configurations for Minimal and Detailed Graphs
         const totalProductsChart = new Chart(document.getElementById('totalProductsChart'), {
             type: 'bar',
             data: {
@@ -121,7 +106,7 @@
                 datasets: [{
                     label: 'Orders',
                     data: [150],
-                    backgroundColor: '#66bb6a', 
+                    backgroundColor: '#66bb6a',
                     borderColor: '#43a047',
                     borderWidth: 2,
                     barThickness: 30, 
@@ -175,10 +160,10 @@
                 datasets: [{
                     label: 'Users',
                     data: [1200],
-                    backgroundColor: '#ff7043', 
+                    backgroundColor: '#ff7043',
                     borderColor: '#f4511e',
                     borderWidth: 2,
-                    barThickness: 30, 
+                    barThickness: 30,
                     hoverBackgroundColor: '#ff8a65',
                     hoverBorderColor: '#d32f2f',
                 }]
@@ -222,7 +207,4 @@
             }
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
