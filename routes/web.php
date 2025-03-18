@@ -86,3 +86,11 @@ Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.u
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/basket', [CartController::class, 'viewCart'])->name('Basket');  // lowercase!
 Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+//admin product page
+Route::get('/admin/games', [GameController::class, 'products'])->name('games.index');
+Route::get('/admin/games/create', [GameController::class, 'create'])->name('games.create');
+Route::post('/admin/games', [GameController::class, 'store'])->name('games.store');
+Route::get('/admin/games/{id}/edit', [GameController::class, 'edit'])->name('games.edit');
+Route::put('/admin/games/{id}', [GameController::class, 'update'])->name('games.update');
+Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');

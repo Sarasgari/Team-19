@@ -1,0 +1,77 @@
+/* product-management.css */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+.container-fluid {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+h2 {
+    color: #333;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.table td {
+    background-color: #ffffff;
+    color: #495057;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#imagePreview {
+    display: flex;
+    justify-content: center;
+}
+
+#previewImg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
