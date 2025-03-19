@@ -3,29 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Message;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
     public function store(Request $request)
     {
-        // Validate the form
+        
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string',
+            'email' => 'required|email',
+            'message' => 'required|string|min:5'
         ]);
 
-        // Save to database
-        Message::create($request->all()); // ✅ Uses mass assignment
+        
+        $contactData = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message'),
+        ];
 
-        // Redirect back with success message
-        return redirect()->back()->with('success', 'Message sent successfully!');
-    }
+        
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contactData));
 
-    public function index()
-    {
-        $messages = Message::latest()->get();
-        return view('admin.messages', compact('messages'));
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }
