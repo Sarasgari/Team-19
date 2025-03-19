@@ -58,6 +58,12 @@
 </nav>
 
 <style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above all other elements */
+}
   .nav-link {
     transition: color 0.3s ease;
   }
