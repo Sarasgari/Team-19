@@ -13,7 +13,6 @@ Function : Login page enable the login to the website and enjoy with the feature
             background: url('image/background.jpg') no-repeat center center fixed; /* Add background image */
             background-size: cover; /* Ensure the background covers the entire area */
             color: #333; /* Dark text for better readability */
-             
         }
 
         .container {
@@ -111,6 +110,7 @@ Function : Login page enable the login to the website and enjoy with the feature
                 
 
                 <p>Don't have an account? <a href="{{ route('signup') }}" style="color: #007bff;">Sign up</a></p> <!-- Change link color to primary -->
+                <p><a href="{{ route('password.request') }}" style="color: #007bff;">Forgot your password?</a></p>
                 <button type="submit" class="btn btn-primary btn-block">Log In</button> <!-- Added login button -->
                 <a href="{{ route('home') }}" class="btn btn-secondary btn-block">Back to Home</a>
             </form>

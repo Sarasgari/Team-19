@@ -8,57 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         body {
             background-color: #f8f9fc;
-            padding-left: 240px;
-            padding-top: 70px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 240px;
-            height: 100vh;
-            background: linear-gradient(180deg, #000000 0%, #000000 100%);
-            padding: 20px;
-            z-index: 1000;
-        }
-
-        .sidebar .nav-link {
-            color: white;
-            padding: 15px;
-            margin: 5px 0;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .sidebar .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        .sidebar .nav-link.active {
-            background: white;
-            color: #000000;
-        }
-
-        /* Header */
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 240px;
-            right: 0;
-            height: 70px;
-            background: white;
-            padding: 15px 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 900;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding-top: 30px;
+            max-width: 80%;
         }
 
         /* Cards */
@@ -116,51 +71,11 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="text-center mb-4">
-            <alt="GameDen" height="40">
-            <div class="text-white-50">GameDen</div>
-        </div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="dashboard.html">
-                    <i class="fas fa-home me-2"></i> Dashboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="products.html">
-                    <i class="fas fa-box me-2"></i> Products
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="orders.html">
-                    <i class="fas fa-shopping-cart me-2"></i> Orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="users.html">
-                    <i class="fas fa-users me-2"></i> Users
-                </a>
-            </li>
-        </ul>
-    </div>
+@include('include.adminheader')
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="search-bar">
-            <input type="text" class="form-control" placeholder="Search orders...">
-        </div>
-        <div class="d-flex align-items-center">
-            <button class="btn btn-link position-relative me-3">
-                <i class="fas fa-bell"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    3
-                </span>
-            </button>
-            <alt="Admin" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
-        </div>
-    </div>
+@include('include.adminbar')
+
+   
 
     <!-- Main Content -->
     <div class="container-fluid">

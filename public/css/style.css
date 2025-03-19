@@ -1,10 +1,14 @@
 /* Custom Styles */
 
-/* Light Mode (Default) */
+
+  
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 70px;
 }
 
 .navbar-brand {
