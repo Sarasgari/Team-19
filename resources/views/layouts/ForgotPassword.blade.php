@@ -19,5 +19,11 @@
     <main class="py-4">
         @yield('content')
     </main>
+<style>
+    .navbar-brand {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+</style>
 </body>
 </html>

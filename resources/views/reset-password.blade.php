@@ -1,40 +1,88 @@
 @extends('layouts.ForgotPassword')
 
 @section('content')
-<div class="container">
-    <h2>Reset Password</h2>
+<style>
+    .reset-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+        margin-top: 50px;
+    }
 
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    .reset-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-    <form method="POST" action="{{ route('password.update') }}">
-        @csrf
+    .reset-card .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
 
-        <input type="hidden" name="token" value="{{ $token }}">
+    .form-control {
+        height: 45px;
+        border-radius: 5px;
+    }
 
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
-        </div>
+    .btn-primary {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+    }
 
-        <div class="mb-3">
-            <label for="password" class="form-label">New Password</label>
-            <input type="password" class="form-control" name="password" required>
-        </div>
+    .btn-secondary {
+        width: 100%;
+        margin-top: 10px;
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
 
-        <div class="mb-3">
-            <label for="password_confirmation" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" name="password_confirmation" required>
-        </div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="reset-card">
+        <h2>Reset Password</h2>
 
-        <button type="submit" class="btn btn-primary w-100">Reset Password</button>
-    </form>
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('password.update') }}">
+            @csrf
+
+            <input type="hidden" name="token" value="{{ $token }}">
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">New Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="password_confirmation" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Reset Password</button>
+            <a href="{{ route('home') }}" class="btn btn-secondary">Home</a>
+        </form>
+    </div>
 </div>
+
 @endsection
