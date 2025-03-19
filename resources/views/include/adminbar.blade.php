@@ -8,12 +8,17 @@
         <input type="text" placeholder="Search users...">
         <i class="fas fa-search"></i>
     </div>
-    <div class="icons">
-        <div class="icon-container">
+    @php
+    $unreadMessages = \App\Models\Message::count();
+    @endphp
+
+<div class="icons">
+    <div class="icon-container">
+        <a href="{{ route('admin.messages') }}">
             <i class="fas fa-bell fa-lg"></i>
-            <span class="notification-badge">3</span>
-        </div>
-        <!-- Profile Picture with Game Character Image -->
+            <span class="notification-badge">{{ $unreadMessages }}</span>
+        </a>
+    </div>
         <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen Logo" class="d-block mx-auto" style="height: 40px;">
     </div>
 </div>
