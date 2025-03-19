@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
-
+use App\Models\Message;
 class ContactController extends Controller
 {
     public function store(Request $request)
@@ -18,15 +18,18 @@ class ContactController extends Controller
         ]);
 
         
-        $contactData = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'message' => $request->input('message'),
-        ];
-
-        
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contactData));
+        Message::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
 
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
+    }
+    public function index()
+    {
+        $messages = Message::latest()->get();
+        
+        return view('admin.messages', compact('messages'));
     }
 }
