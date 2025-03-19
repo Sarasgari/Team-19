@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (theme === "dark") {
             document.body.classList.add("darkmode");
             darkIcon.style.display = "none";
+            
             lightIcon.style.display = "inline";
         } else {
             document.body.classList.remove("darkmode");

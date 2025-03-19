@@ -34,7 +34,7 @@ Function : SignUp page enable the Signup to the website and enjoy with the featu
             font-size: 2rem;
             margin-bottom: 20px;
             text-align: center;
-            color: #333;
+            color: #333333;
         }
 
         .form p {
