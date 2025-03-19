@@ -1,6 +1,8 @@
 @extends('layouts.ForgotPassword')
 
 @section('content')
+
+@include('include.header')
 <style>
     .reset-card {
         background: #fff;

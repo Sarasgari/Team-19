@@ -2,21 +2,14 @@
 
 @section('content')
 
+@include('include.header')
 <style>
-    body {
-        background-image: url("{{ asset('image/abstract.jpg') }}");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        color: black;
-    }
-
     .profile-container {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         height: 100vh;
-        padding-top: 8vh;
+        padding-top: 35vh;
     }
 
     .profile-box {
