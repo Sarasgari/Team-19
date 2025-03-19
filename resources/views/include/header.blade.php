@@ -47,7 +47,7 @@
             <i class="fas fa-user-circle"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-danger" href="{{ route('logout') }}">Logout</a></li>
           </ul>
