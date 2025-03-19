@@ -1,4 +1,5 @@
-body { 
+
+    body { 
     background-image: url("{{ asset('image/background.png') }}");
     background-size: cover; 
     background-repeat: no-repeat; 
@@ -124,3 +125,8 @@ body {
     position: relative; 
     z-index: 10; 
 }
+
+
+
+
+  
