@@ -2,13 +2,12 @@
 
   
     body {
-      font-family: 'Arial', sans-serif;
-     background-color: #f8f9fa;
-    }
-    
-    .navbar-brand {
-      font-size: 1.8rem;
-      font-weight: bold;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 70px;
     }
 
     .card:hover {
