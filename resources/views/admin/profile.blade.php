@@ -284,13 +284,8 @@
     </div>
     </div>
         <button type="submit" class="btn btn-primary mt-2" onclick="window.location.href='{{ route('admin.users')}}'">Back</button>
-       
     </div>
     </div>
-
-   
-
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 @extends('layouts.ForgotPassword')
 
 @section('content')
+
+@include('include.header')
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="reset-card">
         <h2>Password Reset</h2>
