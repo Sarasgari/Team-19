@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-// Developers: Mohammed Rahman, Minwoo Noh
-// Student Numbers: 220083681, 230409589
+// Developers: Mohammed Rahman, Minwoo Noh, Sara Asgari
+// Student Numbers: 220083681, 230409589, 230344431
 // Description: Controller files that hosts the signup, login and logout processes
 
 
@@ -25,6 +25,10 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if(Auth::attempt($credentials)){
+            $user = Auth::user();
+            if ($user->is_admin) {
+                return redirect()->intended(route('admin'));
+            }
             return redirect()->intended(route('home'));
         }
         return redirect(route('login'))->with("error","Invalid email or password");
