@@ -27,6 +27,7 @@ Route::post('/login', [AuthController::class, 'loginpost'])->name('loginpost');
 Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
 Route::post('/signup', [AuthController::class, 'registerPost'])->name('registerPost');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Redirection After Login (After login route is defined)
 Route::middleware(['auth'])->group(function () {
