@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game; // Import the Game model
 use App\Models\User;
 
 class AdminController extends Controller
@@ -14,7 +15,8 @@ class AdminController extends Controller
 
     public function products()
     {
-         return view('admin.products'); 
+        $games = collect(Game::all()); // Retrieve all games
+        return view('admin.products', compact('games')); // Pass the games variable to the view
     }
 
     public function orders()

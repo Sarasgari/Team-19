@@ -1,0 +1,124 @@
+body {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.content-wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #555;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+button {
+    border-radius: 25px; /* Rounded corners */
+    padding: 12px 30px; /* Slightly larger padding */
+    border: 2px solid transparent;
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text */
+    font-weight: 600; /* Slightly bolder font */
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+    border-color: #0056b3;
+}
+
+.btn-minimal {
+    background-color: transparent;
+    color: #007bff; /* Blue color */
+    border: 2px solid #007bff;
+    border-radius: 25px; /* Rounded corners */
+    padding: 12px 30px; /* Matching padding */
+    font-weight: 600; /* Bolder font */
+    text-transform: uppercase;
+}
+
+.btn-minimal:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text on hover */
+    border-color: #007bff;
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #f4f4f4;
+    border-bottom: none;
+    padding: 15px;
+}
+
+.modal-header .btn-close {
+    border: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.fas {
+    margin-right: 8px;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+table .btn {
+    margin: 2px;
+    padding: 6px 10px;
+}
+
+.modal-body select, .modal-body input {
+    font-size: 14px;
+}

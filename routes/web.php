@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingController;
@@ -76,8 +77,12 @@ Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('
 Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+});
 
 Route::get('/game/{id}', [GameController::class, 'show'])->name('game.show');
 
@@ -88,10 +93,17 @@ Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.
 Route::get('/basket', [CartController::class, 'viewCart'])->name('Basket');  // lowercase!
 Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
-
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
 
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+//admin product page
+Route::get('/admin/games', [GameController::class, 'products'])->name('games.index');
+Route::get('/admin/games/create', [GameController::class, 'create'])->name('games.create');
+Route::post('/admin/games', [GameController::class, 'store'])->name('games.store');
+Route::get('/admin/games/{id}/edit', [GameController::class, 'edit'])->name('games.edit');
+Route::put('/admin/games/{id}', [GameController::class, 'update'])->name('games.update');
+Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
+

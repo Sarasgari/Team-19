@@ -12,8 +12,8 @@
     <style>
         body {
             background-color: #f8f9fc;
-            padding-left: 240px;
-            padding-top: 70px;
+            padding-top: 30px;
+            max-width: 80%;
         }
 
         /* Cards */

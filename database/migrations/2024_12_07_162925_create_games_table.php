@@ -9,16 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('games', function (Blueprint $table) {
-            $table->id('gameid');
-            $table->string('title');
-            $table->string('description');
-            $table->float('price');
-            $table->date('releasedate');
-        });
-    }
+    public function up()
+{
+    Schema::create('games', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');
+        $table->text('description');
+        $table->decimal('price', 10, 2);
+        $table->date('release_date');
+        $table->integer('stock');
+        $table->json('platforms');
+        $table->string('image');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
