@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function products()
     {
         $games = collect(Game::all()); // Retrieve all games
-        return view('admin.products', compact('games')); // Pass the games variable to the view
+        return view('admin.Product', compact('games')); // Pass the games variable to the view
     }
 
     public function orders()
