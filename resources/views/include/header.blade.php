@@ -12,9 +12,6 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav text-center">
         <li class="nav-item">
-          <a class="nav-link text-dark px-3" href="{{ route('home') }}">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-dark px-3" href="{{ route('products') }}">Products</a>
         </li>
         <li class="nav-item">
