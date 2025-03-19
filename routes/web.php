@@ -13,7 +13,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\GameController;
-
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 // Home Route
 Route::get('/', [PageController::class, 'home'])->name('home');
 
@@ -92,6 +93,12 @@ Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.
 Route::get('/basket', [CartController::class, 'viewCart'])->name('Basket');  // lowercase!
 Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
 //admin product page
 Route::get('/admin/games', [GameController::class, 'products'])->name('games.index');
 Route::get('/admin/games/create', [GameController::class, 'create'])->name('games.create');
