@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom">
   <div class="container-fluid">
-    <a class="navbar-brand d-flex align-items-center text-primary " href="{{ route('home') }}" style="font-size: 1.5rem;">
-      <img src="{{ asset('image/logo-removebg.png') }}" alt="GameDen Logo" class="me-2" style="height: 24px;">
-      GameDen
-    </a>
+  <a class="navbar-brand d-flex align-items-center text-primary" href="{{ route('home') }}" style="font-size: 1.5rem; margin-left: 25px;">
+  <img src="{{ asset('image/logo1.png') }}" alt="GameDen Logo" class="me-2" style="height: 50px;">
+</a>
+
     
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
