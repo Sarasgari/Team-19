@@ -25,7 +25,7 @@
     <h1>Your Basket</h1>
 
     @if(collect($cart)->count() > 0)
-        <form action="{{ route('cart.update') }}" method="POST"> <!-- Fix route -->
+        <form action="{{ route('cart.update') }}" method="POST">
             @csrf
             <table class="table table-bordered">
                 <thead class="table-dark">
@@ -33,7 +33,6 @@
                         <th>Game</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Stock</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -50,12 +49,19 @@
                                        max="{{ $item->game->stock ?? 99 }}" 
                                        class="form-control" style="width: 70px;">
                             </td>
-                            <td>{{ $item->game->stock ?? 'N/A' }}</td>
                             <td>£{{ number_format(($item->game->price ?? $item['price']) * ($item->quantity ?? $item['quantity']), 2) }}</td>
                             <td>
-                                <form action="{{ route('cart.remove', $item->id ?? $loop->index) }}" method="POST">
+                                <a href="{{ route('cart.remove', ['id' => $item->id ?? $loop->index]) }}" 
+                                   class="btn btn-danger btn-sm"
+                                   onclick="event.preventDefault(); document.getElementById('remove-form-{{ $item->id ?? $loop->index }}').submit();">
+                                    Remove
+                                </a>
+                                
+                                <form id="remove-form-{{ $item->id ?? $loop->index }}" 
+                                      action="{{ route('cart.remove', ['id' => $item->id ?? $loop->index]) }}" 
+                                      method="POST" 
+                                      style="display: none;">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
                                 </form>
                             </td>
                         </tr>

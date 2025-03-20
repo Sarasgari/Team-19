@@ -74,15 +74,11 @@ Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('
 
 
 //basket commands
-Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
+/*Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+*/
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
-    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
-});
 
 Route::get('/game/{id}', [GameController::class, 'show'])->name('game.show');
 
@@ -107,3 +103,7 @@ Route::get('/admin/games/{id}/edit', [GameController::class, 'edit'])->name('gam
 Route::put('/admin/games/{id}', [GameController::class, 'update'])->name('games.update');
 Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
 
+Route::get('/admin/games/create', [GameController::class, 'create'])->name('games.create');
+Route::post('/admin/games', [GameController::class, 'store'])->name('games.store');
+
+Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
