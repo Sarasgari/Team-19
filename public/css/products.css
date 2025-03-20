@@ -9,6 +9,88 @@
     overflow-x: hidden;
 }
 
+/* Sidebar styling to match navbar */
+/* Sidebar styling to match navbar with transparency */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adds space to avoid overlap with navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px); /* Ensures sidebar doesn't overflow */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd;
+    z-index: 1000; /* Keeps it above the content */
+    padding: 20px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px); /* Optional: add a blur effect behind the sidebar */
+}
+
+/* Sidebar Search Bar */
+.sidebar input[type="text"] {
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+}
+
+/* Sidebar Dropdowns */
+.sidebar .filter-section {
+    margin-bottom: 15px;
+}
+
+/* Apply Filters Button */
+.sidebar .apply-btn {
+    width: 100%;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Smaller padding */
+    font-size: 0.9rem; /* Slightly smaller text */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .apply-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Sidebar Button Group */
+.sidebar .btn-group {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.sidebar .btn {
+    flex: 1;
+    margin-right: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.sidebar .btn:hover {
+    background-color: #0056b3; /* Blue hover effect */
+    color: white;
+}
+
+.sidebar .btn-light {
+    background-color: white;
+    color: #007bff; /* Blue text color */
+    border: 1px solid #ddd;
+}
+
+.sidebar .btn-light:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white;
+}
+
+/* Main content area */
+.main-content {
+    margin-left: 250px; /* Ensure the main content is pushed right */
+    padding-top: 60px; /* To avoid content overlapping with the navbar */
+}
+
+
 .game-card {
     width: 200px; 
     height: 450px;
