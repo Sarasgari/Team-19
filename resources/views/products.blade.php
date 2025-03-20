@@ -28,15 +28,15 @@
         <div class="col">
             <div class="card game-card">
                 
-                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="{{ $game->title }}">
+                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="Image of {{ $game->title }}" loading="lazy">
                 
                 <div class="info-box">
-                    <h5>{{ $game->title }}</h5>
+                    <h3>{{ $game->title }}</h3>
                     <p>{{ $game->description }}</p>
                 </div>
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ $game->title }}</h5>
+                    <h3 class="card-title">{{ $game->title }}</h3>
                     <div class="rating">
                         <span class="text-warning">⭐ 4.5</span> <!-- Static rating for now -->
                     </div>
@@ -67,7 +67,7 @@
         <div class="col">
             <div class="card game-card">
             
-                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="{{ $game->title }}">
+                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="Image of {{ $game->title }}" loading="lazy">
                 
                 <div class="info-box">
                     <h5>{{ $game->title }}</h5>
@@ -105,7 +105,7 @@
         <div class="col">
             <div class="card game-card">
               
-                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="{{ $game->title }}">
+                <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="Image of {{ $game->title }}">
                 
                 <div class="info-box">
                     <h5>{{ $game->title }}</h5>
@@ -144,7 +144,7 @@
             <div class="card game-card">
                 <div class="image-wrapper">
         
-                    <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="{{ $game->title }}">
+                    <img src="{{ asset('image/' . ($game->image ?? 'placeholder.jpg')) }}" class="card-img-top" alt="Image of {{ $game->title }}">
                     
                     <div class="info-box">
                         <h5>{{ $game->title }}</h5>
@@ -187,7 +187,7 @@
             <div class="card game-card">
                 <div class="image-wrapper">
                     
-                    <img src="{{ asset('image/' . ($game->image ?? strtolower(str_replace(' ', '_', $game->title)) . '.jpg')) }}" class="card-img-top" alt="{{ $game->title }}">
+                    <img src="{{ asset('image/' . ($game->image ?? strtolower(str_replace(' ', '_', $game->title)) . '.jpg')) }}" class="card-img-top" alt="Image of {{ $game->title }}" loading="lazy">
 
                     <div class="info-box">
                         <h5>{{ $game->title }}</h5>
