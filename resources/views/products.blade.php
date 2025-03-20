@@ -10,17 +10,29 @@
 </head>
 
 <body>
+
+    <style> 
+    body { 
+    background-image: url("{{ asset('image/background.png') }}");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+    color: white; 
+    overflow-x: hidden;
+    }
+</style>
    <!-- Navbar -->
   @include('include.header')
 
   <!-- Main title for the page  -->
-<div class="container">
+<div class="container" style="margin-top: 150px;">
     <div class="main-title">Games</div>
    
 <!-- Main content section for games -->
   <!--PS5 section--> 
 
-  <div id="ps5" class="category">
+  <div id="ps5" class="category" style="margin-top: 20px;">
     <div class="category-title">PS5 Games</div>
 
     <div class="row row-cols-5">
