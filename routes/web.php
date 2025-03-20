@@ -72,10 +72,10 @@ Route::get('/admin/messages', [ContactController::class, 'index'])->middleware('
 
 
 //basket commands
-/*Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
+Route::post('cart/add/{games}',[BasketController::class, 'add'])->name('cart.add');
 Route::post('cart/remove/{games}',[BasketController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update',[BasketController::class, 'update'])->name('cart.update');
-*/
+
 
 
 Route::get('/game/{id}', [GameController::class, 'show'])->name('game.show');
@@ -99,3 +99,9 @@ Route::get('/admin/games/create', [GameController::class, 'create'])->name('game
 Route::post('/admin/games', [GameController::class, 'store'])->name('games.store');
 
 Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
+
+
+//Admin Order
+Route::post('/orders/store', [App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');
+Route::get('/admin/orders', [App\Http\Controllers\OrderController::class, 'showOrders'])->name('admin.orders');
+Route::get('/admin/orders/{id}', [App\Http\Controllers\OrderController::class, 'getOrderDetails'])->name('admin.order.details');

@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function admin()
     {
-        return view('admin'); 
+        return view('admin');
     }
 
     public function products()
@@ -21,15 +21,19 @@ class AdminController extends Controller
 
     public function orders()
     {
-         return view('admin.orders'); 
+        // Delegate to OrderController's showOrders method
+        $orderController = new OrderController();
+        return $orderController->showOrders();
     }
+
     public function users()
     {
-     $users = User::all();
-     return view('admin.users')->with(['users'=> $users]); 
+        $users = User::all();
+        return view('admin.users')->with(['users' => $users]);
     }
+
     public function settings()
     {
-         return view('admin.settings'); 
+        return view('admin.settings');
     }
 }

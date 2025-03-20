@@ -74,6 +74,7 @@ class CartController extends Controller
                 }
             } else {
                 $cart[$gameId] = [
+                    'id' => $gameId,  // Make sure we store the game ID
                     'title' => $game->title,
                     'price' => $game->price,
                     'quantity' => 1,
@@ -187,6 +188,7 @@ class CartController extends Controller
             DB::beginTransaction();
             try {
                 $totalAmount = 0; // Track total amount
+                $formattedCart = []; // Prepare cart data for the view
     
                 foreach ($cart as $gameId => $item) {
                     $game = Game::find($gameId);
@@ -194,19 +196,30 @@ class CartController extends Controller
                         $game->stock -= $item['quantity'];
                         $game->save();
                         $totalAmount += $game->price * $item['quantity'];
+                        
+                        // Format cart data for the view
+                        $formattedCart[] = [
+                            'id' => $gameId,
+                            'name' => $item['title'],
+                            'price' => $game->price,
+                            'quantity' => $item['quantity'],
+                            'total' => $game->price * $item['quantity']
+                        ];
                     } else {
                         DB::rollBack();
                         return redirect()->back()->with('error', 'Not enough stock for some items.');
                     }
                 }
+                
+                // Store the formatted cart in session for use in order creation
+                Session::put('checkout_cart', $formattedCart);
+                Session::put('checkout_total', $totalAmount);
     
-                // Clear guest cart after successful purchase
-                Session::forget('cart');
                 DB::commit();
     
                 // Pass cart items & total to PaymentForm
-                return view('PaymentForm', ['cart' => $cart, 'totalAmount' => $totalAmount])
-                       ->with('success', 'Purchase successful!');
+                return view('PaymentForm', ['cart' => $formattedCart, 'totalAmount' => $totalAmount])
+                       ->with('success', 'Order ready for payment!');
             } catch (\Exception $e) {
                 DB::rollBack();
                 return redirect()->back()->with('error', 'Something went wrong. Please try again.');
@@ -222,6 +235,7 @@ class CartController extends Controller
         DB::beginTransaction();
         try {
             $totalAmount = 0;
+            $formattedCart = []; // Prepare cart data for the view
     
             foreach ($cartItems as $cartItem) {
                 $game = Game::find($cartItem->product_id);  // Using product_id to match your schema
@@ -229,19 +243,30 @@ class CartController extends Controller
                     $game->stock -= $cartItem->quantity;
                     $game->save();
                     $totalAmount += $game->price * $cartItem->quantity;
+                    
+                    // Format cart data for the view
+                    $formattedCart[] = [
+                        'id' => $game->id,
+                        'name' => $game->title,
+                        'price' => $game->price,
+                        'quantity' => $cartItem->quantity,
+                        'total' => $game->price * $cartItem->quantity
+                    ];
                 } else {
                     DB::rollBack();
                     return redirect()->back()->with('error', 'Not enough stock for some items.');
                 }
             }
+            
+            // Store the formatted cart in session for use in order creation
+            Session::put('checkout_cart', $formattedCart);
+            Session::put('checkout_total', $totalAmount);
     
-            // Clear cart after purchase
-            Cart::where('user_id', Auth::id())->delete();
             DB::commit();
     
             // Pass data to PaymentForm
-            return view('PaymentForm', ['cart' => $cartItems, 'totalAmount' => $totalAmount])
-                   ->with('success', 'Purchase successful!');
+            return view('PaymentForm', ['cart' => $formattedCart, 'totalAmount' => $totalAmount])
+                   ->with('success', 'Order ready for payment!');
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Something went wrong. Please try again.');
