@@ -25,9 +25,46 @@
    <!-- Navbar -->
   @include('include.header')
 
+  <!-- Sidebar -->
+<div class="sidebar">
+    <!-- Search Bar -->
+    <input type="text" class="form-control" id="searchBar" placeholder="Search Games..." onkeyup="searchGames()">
+
+    <!-- Sort by -->
+    <div>
+        <label for="sortBy">Sort by:</label>
+        <div class="btn-group" role="group" aria-label="Sort by">
+            <button type="button" class="btn btn-light" id="sortNewest" onclick="sortBy('newest')">Newest</button>
+            <button type="button" class="btn btn-light" id="sortOldest" onclick="sortBy('oldest')">Oldest</button>
+        </div>
+    </div>
+
+    <!-- Filter by Category -->
+    <div class="filter-section">
+        <label for="categoryFilter">Category:</label>
+        <select class="form-control" id="categoryFilter">
+            <option value="PS5">PS5</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="PC">PC</option>
+            <option value="PS4">PS4</option>
+        </select>
+    </div>
+
+    <!-- Price Filter -->
+    <div class="filter-section">
+        <label for="priceRange">Price Range:</label>
+        <input type="range" class="form-range" id="priceRange" min="0" max="100" step="1" value="50">
+        <span id="priceValue">£50</span>
+    </div>
+
+    <!-- Apply Filters Button -->
+    <button class="btn apply-btn" onclick="applyFilters()">Apply Filters</button>
+</div>
+
   <!-- Main title for the page  -->
-<div class="container" style="margin-top: 150px;">
-    <div class="main-title">Games</div>
+<div class="main-content" style="margin-top: 50px;">
+    
    
 <!-- Main content section for games -->
   <!--PS5 section--> 
@@ -35,7 +72,7 @@
   <div id="ps5" class="category" style="margin-top: 20px;">
     <div class="category-title">PS5 Games</div>
 
-    <div class="row row-cols-5">
+    <div class="row row-cols-4">
         @foreach ($games->where('platform', 'PS5') as $game)
         <div class="col">
             <div class="card game-card">
@@ -74,7 +111,7 @@
       <div id="xbox" class="category">
     <div class="category-title">Xbox Games</div>
     
-    <div class="row row-cols-5">
+    <div class="row row-cols-4">
      @foreach ($games->where('platform', 'Xbox') as $game)
         <div class="col">
             <div class="card game-card">
@@ -112,7 +149,7 @@
     <div id="nintendo" class="category">
     <div class="category-title">Nintendo Games</div>
 
-    <div class="row row-cols-5">
+    <div class="row row-cols-4">
         @foreach ($games->where('platform', 'Nintendo Switch') as $game)
         <div class="col">
             <div class="card game-card">
@@ -150,7 +187,7 @@
     <div id="ps4" class="category">
     <div class="category-title">PS4 Games</div>
 
-    <div class="row row-cols-5 g-3">
+    <div class="row row-cols-4 g-3">
         @foreach ($games->where('platform', 'PS4') as $game)
         <div class="col">
             <div class="card game-card">
@@ -193,7 +230,7 @@
     <div id="pc" class="category">
     <div class="category-title">PC Games</div>
 
-    <div class="row row-cols-5 g-3">
+    <div class="row row-cols-4 g-3">
         @foreach ($games->where('platform', 'PC') as $game)
         <div class="col">
             <div class="card game-card">
@@ -292,5 +329,33 @@ function googleTranslateElementInit() {
     ;
     document.head.appendChild(style);
 </script>
+<script>
+        // JavaScript functions for handling search and filter
+        function searchGames() {
+            const searchQuery = document.getElementById('searchBar').value.toLowerCase();
+            const games = document.querySelectorAll('.game-card');
+            games.forEach(function (game) {
+                const title = game.querySelector('.card-title').textContent.toLowerCase();
+                if (title.includes(searchQuery)) {
+                    game.style.display = '';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        }
+
+        function applyFilters() {
+            const category = document.getElementById('categoryFilter').value;
+            const price = document.getElementById('priceRange').value;
+            const sortBy = document.getElementById('sortBy').value;
+
+            // Logic to apply category, price, and sorting filters
+            console.log(`Category: ${category}, Price: £${price}, Sort: ${sortBy}`);
+        }
+
+        document.getElementById('priceRange').addEventListener('input', function() {
+            document.getElementById('priceValue').textContent = '£' + this.value;
+        });
+    </script>
 </body>
 </html>
