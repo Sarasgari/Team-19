@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Review;
 use Illuminate\Support\Facades\File;
 
 class GameController extends Controller
 {
     public function products()
     {
-        $games = collect(Game::all())->sortByDesc('id'); 
-        return view('products', compact('games'));
+        $games = Game::orderByDesc('id')->get(); 
+        $reviews = Review::latest()->paginate(5); 
+        return view('products', compact('games', 'reviews'));
     }
     
     public function show($id)

@@ -15,6 +15,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\ReviewController;
 // Home Route
 Route::get('/', [PageController::class, 'home'])->name('home');
 
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
         }
         return redirect('/home');
     })->name('admin.redirect');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 });
 
 Route::get('/admin/users/{id}/profile', [UserController::class, 'showProfile'])->name('admin.users.profile');
@@ -109,3 +111,7 @@ Route::get('/admin/games/create', [GameController::class, 'create'])->name('game
 Route::post('/admin/games', [GameController::class, 'store'])->name('games.store');
 
 Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('games.destroy');
+
+// review Controller
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/products', [ReviewController::class, 'index'])->name('products');

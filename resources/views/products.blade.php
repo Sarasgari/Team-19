@@ -265,6 +265,64 @@
     </div>
 </div>
 
+<!-- Review Section -->
+<div class="container mt-5">
+    <div class="p-4 rounded" style="background-color: rgba(0, 0, 0, 0.65); color: white;">
+        <h3 class="mb-4">Leave a Review</h3>
+
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        @auth
+            <form action="{{ route('reviews.store') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating:</label>
+                    <select class="form-select" name="rating" required>
+                        <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                        <option value="3">⭐⭐⭐ - Good</option>
+                        <option value="2">⭐⭐ - Poor</option>
+                        <option value="1">⭐ - Very Bad</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="review_text" class="form-label">Your Review:</label>
+                    <textarea class="form-control" name="review_text" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-warning fw-bold">Submit Review</button>
+            </form>
+        @else
+            <p><a href="{{ route('login') }}" class="text-warning fw-bold">Login</a> to leave a review.</p>
+        @endauth
+
+        <hr class="border-light">
+
+        <h4 class="mt-4">Customer Reviews</h4>
+        @forelse($reviews as $review)
+            <div class="card mb-3 text-dark">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ $review->user->name ?? 'Anonymous' }} 
+                        - {{ str_repeat('⭐', $review->rating) }}
+                    </h5>
+                    <p class="card-text">{{ $review->review_text }}</p>
+                    <p class="text-muted">Posted on {{ $review->created_at->format('F d, Y') }}</p>
+                </div>
+            </div>
+        @empty
+            <p>No reviews yet. Be the first to leave one!</p>
+        @endforelse
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center">
+            {{ $reviews->links() }}
+        </div>
+    </div>
+</div>
 
 
  <!-- Footer -->
