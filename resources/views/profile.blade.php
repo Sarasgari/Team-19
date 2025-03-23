@@ -106,21 +106,30 @@
         <!-- Orders Section -->
         <div id="orders-tab" class="tab-content" style="display: none;">
             <h4 class="profile-title">🧾 Your Orders</h4>
-            @if($reviews->count())
-                @foreach($reviews as $review)
-                    <div class="card mb-3 p-3">
-                        <div class="d-flex align-items-center">
-                            <img src="{{ asset('image/' . $review->game->image) }}" alt="Game" style="width: 80px; height: 80px; object-fit: cover;" class="me-3">
-                            <div>
-                                <h5>{{ $review->game->title }}</h5>
-                                <p class="mb-0">{{ $review->review_text }}</p>
-                                <small class="text-muted">⭐ {{ $review->rating }} | {{ $review->created_at->format('Y-m-d') }}</small>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+        
+            @if($orders->isEmpty())
+                <p>You have no orders yet.</p>
             @else
-                <p>No orders found.</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Ordered At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($orders as $order)
+                            <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>${{ number_format($order->total, 2) }}</td>
+                                <td>{{ ucfirst($order->status) }}</td>
+                                <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @endif
         </div>
     </div>
