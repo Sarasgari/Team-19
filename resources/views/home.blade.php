@@ -38,7 +38,7 @@
     <div class="hero-content text-center">
       <h1>Welcome to GameDen</h1>
       <p>Your one-stop shop for gaming greatness!</p>
-      <a href="{{ route('game') }}" class="btn btn-primary btn-lg">Explore Games</a>
+      <a href="{{ route('products') }}" class="btn btn-primary btn-lg">Explore Games</a>
     </div>
   </section>
 
@@ -235,22 +235,25 @@
   
 
   <!-- Footer -->
-  <footer class="py-4">
-    <div class="container text-center">
-      <p>© 2024 GameDen. All Rights Reserved.</p>
-      <p>
-        <a href="#" class="text-white me-2">Privacy Policy</a> | 
-        <a href="#" class="text-white ms-2">Terms of Service</a>
-        
+  <footer>
+  <div class="container">
+    <p>© 2024 GameDen. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+    </div>
+    <div id="google_translate_element"></div>
+  </div>
 
-      </p>
-      <div id="google_translate_element"></div>
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>
+  </footer>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </footer>

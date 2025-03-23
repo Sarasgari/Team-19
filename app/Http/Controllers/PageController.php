@@ -55,5 +55,24 @@ class PageController extends Controller
         return view('game'); 
     }
 
+    public function processPayment(Request $request)
+{
+ 
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'address' => 'required',
+        'number' => 'required',
+        'exp_date' => 'required',
+        'cvv' => 'required'
+    ]);
+    
+   
+    return view('payment', [
+        'success' => true,
+        'totalAmount' => $request->input('total_amount')
+    ]);
+}
+
 }
 

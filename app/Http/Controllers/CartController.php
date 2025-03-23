@@ -18,9 +18,9 @@ class CartController extends Controller
             // Make sure to include the game relationship
             $cart = Cart::where('user_id', Auth::id())->get();
             
-            // Load the game for each cart item (since product_id points to games)
+            // Load the game for each cart item
             foreach ($cart as $item) {
-                $item->game = Game::find($item->product_id);
+                $item->game = Game::find($item->game_id);
             }
         } else {
             $cart = Session::get('cart', []);
@@ -41,15 +41,13 @@ class CartController extends Controller
         
         if (Auth::check()) {
             // Logged-in user: Save to database
-            // Using product_id to match your database schema
             $cartItem = Cart::where('user_id', Auth::id())
-                           ->where('product_id', $gameId)
+                           ->where('game_id', $gameId)
                            ->first();
             
             if ($cartItem) {
                 if ($cartItem->quantity < $game->stock) {
                     $cartItem->quantity++;
-                    $cartItem->total = $cartItem->quantity * $game->price; // Update total
                     $cartItem->save();
                 } else {
                     return redirect()->back()->with('error', 'Not enough stock available!');
@@ -57,9 +55,8 @@ class CartController extends Controller
             } else {
                 Cart::create([
                     'user_id' => Auth::id(),
-                    'product_id' => $gameId,
-                    'quantity' => 1,
-                    'total' => $game->price // Set initial total
+                    'game_id' => $gameId,
+                    'quantity' => 1
                 ]);
             }
         } else {
@@ -68,7 +65,6 @@ class CartController extends Controller
             if (isset($cart[$gameId])) {
                 if ($cart[$gameId]['quantity'] < $game->stock) {
                     $cart[$gameId]['quantity']++;
-                    $cart[$gameId]['total'] = $cart[$gameId]['quantity'] * $game->price; // Update total
                 } else {
                     return redirect()->back()->with('error', 'Not enough stock available!');
                 }
@@ -76,8 +72,7 @@ class CartController extends Controller
                 $cart[$gameId] = [
                     'title' => $game->title,
                     'price' => $game->price,
-                    'quantity' => 1,
-                    'total' => $game->price // Set initial total
+                    'quantity' => 1
                 ];
             }
             Session::put('cart', $cart);
@@ -100,10 +95,9 @@ class CartController extends Controller
             foreach ($request->quantities as $cartId => $quantity) {
                 $cartItem = Cart::find($cartId);
                 if ($cartItem) {
-                    $game = Game::find($cartItem->product_id);  // Using product_id to match your schema
+                    $game = Game::find($cartItem->game_id);
                     if ($game && $quantity <= $game->stock) {
                         $cartItem->quantity = $quantity;
-                        $cartItem->total = $quantity * $game->price; // Update total
                         $cartItem->save();
                     } else {
                         return redirect()->back()->with('error', 'Not enough stock available!');
@@ -119,7 +113,6 @@ class CartController extends Controller
                     $game = Game::find($gameId);
                     if ($game && $quantity <= $game->stock) {
                         $cart[$gameId]['quantity'] = $quantity;
-                        $cart[$gameId]['total'] = $quantity * $game->price; // Update total
                     } else {
                         return redirect()->back()->with('error', 'Not enough stock available!');
                     }
@@ -224,7 +217,7 @@ class CartController extends Controller
             $totalAmount = 0;
     
             foreach ($cartItems as $cartItem) {
-                $game = Game::find($cartItem->product_id);  // Using product_id to match your schema
+                $game = Game::find($cartItem->game_id);
                 if ($game && $game->stock >= $cartItem->quantity) {
                     $game->stock -= $cartItem->quantity;
                     $game->save();
