@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
         return redirect('/home');
     })->name('admin.redirect');
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 });
 
 Route::get('/admin/users/{id}/profile', [UserController::class, 'showProfile'])->name('admin.users.profile');
@@ -115,6 +116,3 @@ Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('ga
 // review Controller
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 Route::get('/products', [ReviewController::class, 'index'])->name('products');
-
-
-Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');

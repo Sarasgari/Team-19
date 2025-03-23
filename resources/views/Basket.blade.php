@@ -3,6 +3,7 @@
   University ID: 2300466694, 220083681
   Function: Basket page holds the items and proceeds to the payment form 
 -->
+@include('include.header')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +15,6 @@
   <link rel="stylesheet" href="{{ asset('css/Basket.css') }}">
 </head>
 <body>
-  
-@include('include.header')
 
   <!-- Main Content -->
   <main>
@@ -88,7 +87,5 @@
     <p>© 2024 GameDen. All Rights Reserved.</p>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
