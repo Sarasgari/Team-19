@@ -70,6 +70,7 @@
         <a href="#" class="tab-btn active" data-tab="info" onclick="showTab('info')">👤 Profile Information</a>
         <a href="#" class="tab-btn" data-tab="edit" onclick="showTab('edit')">✏️ Update Profile</a>
         <a href="#" class="tab-btn" data-tab="orders" onclick="showTab('orders')">🧾 Your Orders</a>
+        <a href="{{ route('home') }}" class="tab-btn">🏠 Home</a>
     </div>
     
 
