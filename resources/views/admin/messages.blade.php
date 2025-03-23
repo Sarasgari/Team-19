@@ -7,8 +7,8 @@
     @if($messages->isEmpty())
         <p class="text-muted">No messages yet.</p>
     @else
-    <table class="table">
-        <thead>
+    <table class="table table-hover table-striped align-middle shadow-sm rounded overflow-hidden" style="background-color: #ffffff;">
+        <thead class="table-dark">
             <tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -23,7 +23,7 @@
                     <td>{{ $message->name }}</td>
                     <td>{{ $message->email }}</td>
                     <td>{{ $message->message }}</td>
-                    <td>{{ \Carbon\Carbon::parse($message->created_at)->format('d-m-Y H:i') }}</td>
+                    <td>{{ $message->created_at->format('d-m-Y H:i')}}</td>
                     <td>
                         <form action="{{ route('admin.messages.destroy', $message->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this message?');">
                             @csrf

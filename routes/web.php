@@ -74,7 +74,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('admin/users/{id}/delete', [UserController::class, 'destroy'])->name('admin.users.destroy');
     Route::get('admin/settings', [SettingController::class, 'index'])->name('admin.settings');
     Route::post('admin/settings/update', [SettingController::class, 'update'])->name('admin.settings.update');
-    Route::get('/admin/messages', [ContactController::class, 'index'])->name('admin.messages');
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
