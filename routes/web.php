@@ -115,3 +115,6 @@ Route::delete('/admin/games/{id}', [GameController::class, 'destroy'])->name('ga
 // review Controller
 Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 Route::get('/products', [ReviewController::class, 'index'])->name('products');
+
+
+Route::put('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
