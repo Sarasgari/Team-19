@@ -50,6 +50,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');
     Route::get('/admin/orders', [AdminController::class, 'orders'])->name('admin.orders');
     Route::get('/admin/messages', [ContactController::class, 'index'])->name('admin.messages');
+    Route::delete('/admin/messages/{id}', [ContactController::class, 'destroy'])->name('admin.messages.destroy');
 });
 
 // Public Pages
