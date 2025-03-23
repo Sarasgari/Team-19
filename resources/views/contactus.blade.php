@@ -84,7 +84,15 @@
     <label for="message">Your Message</label>
     <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
 
-    <input type="submit" value="Send Message">
+    <div class="d-flex justify-content-start gap-3 mt-4">
+        <button type="submit" class="btn btn-dark px-4 py-2 fw-bold" style="min-width: 150px;">
+        Send Message
+        </button>
+    
+        <a href="{{ route('home') }}" class="btn btn-outline-dark px-4 py-2 fw-bold" style="min-width: 150px;">
+        Home
+        </a>
+    </div>
         </form>
 
     @if(session('success'))
