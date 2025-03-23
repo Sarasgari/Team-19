@@ -67,7 +67,7 @@
 <div class="container profile-container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#" class="tab-btn active" data-tab="info" onclick="showTab('info')">👤 Profile Information</a>
+        <a href="#" class="tab-btn active" data-tab="info" onclick="showTab('info')">👤 Profile</a>
         <a href="#" class="tab-btn" data-tab="edit" onclick="showTab('edit')">✏️ Update Profile</a>
         <a href="#" class="tab-btn" data-tab="orders" onclick="showTab('orders')">🧾 Your Orders</a>
         <a href="{{ route('home') }}" class="tab-btn">🏠 Home</a>
@@ -78,7 +78,7 @@
     <div class="content-area">
         <!-- Profile Info -->
         <div id="info-tab" class="tab-content">
-            <h4 class="profile-title">👤 Profile Information</h4>
+            <h4 class="profile-title">👤 Profile</h4>
             <p><strong>Username:</strong> {{ $user->name }}</p>
             <p><strong>Email:</strong> {{ $user->email }}</p>
         </div>
