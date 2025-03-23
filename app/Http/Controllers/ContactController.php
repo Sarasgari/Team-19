@@ -32,4 +32,12 @@ class ContactController extends Controller
         
         return view('admin.messages', compact('messages'));
     }
+    public function destroy($id)
+    {
+        $message = Message::findOrFail($id);
+        $message->delete();
+
+        return redirect()->route('admin.messages')->with('success', 'Message deleted successfully.');
+    }
+
 }
