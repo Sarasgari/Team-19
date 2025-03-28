@@ -1,14 +1,17 @@
-/* Devolper: Abdulrahman Mostafa
-Student Id: 230046694
-Function: Basket style */
+/* 
+* Developer: Abdulrahman Mostafa Student Id: 230046694 
+* Function: Enhanced Basket style 
+*/
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("/image/godofwar.jpg"); 
+  background-image: url("/image/godofwar.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -20,31 +23,47 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px); 
+  padding: 40px 20px;
 }
 
+.background {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  min-height: 100%;
+}
 
-.square-container {
-  width: 600px;
-  height: 600px;
-  background-color: rgba(255, 255, 255, 0.7); 
-  border: 2px solid rgba(204, 204, 204, 0.7);
-  border-radius: 10px;
+.basket-container {
+  width: 90%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   padding: 30px;
   color: #333;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin: 40px 0;
 }
 
-
 .basket-container h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #222;
+  border-bottom: 3px solid #0066cc;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.basket-container h3 {
+  font-size: 1.8rem;
   color: #333;
+  margin-top: 25px;
+  font-weight: 600;
 }
 
 .basket-container p {
@@ -53,30 +72,206 @@ main {
   color: #666;
 }
 
-.btn {
-  display: block;
-  width: 100%;
+.basket-container p.text-danger {
+  font-size: 1.3rem;
+  color: #dc3545;
   text-align: center;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 20px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  margin-bottom: 25px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table-dark {
+  background-color: #272838;
+}
+
+.table th {
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.table td {
+  padding: 15px;
+  vertical-align: middle;
+  background-color: #fff;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Input Styling */
+.form-control {
+  padding: 10px;
+  border: 1px solid #ced4da;
   border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+/* Button Styling */
+.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin: 10px 5px;
   border: none;
-  background-color: #4f4f4f; 
-  color: #fff; 
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.btn:hover {
-  background-color: #3a3a3a; 
-}
-
-footer {
-  background-color: #343a40;
+.btn-primary {
+  background-color: #0066cc;
   color: white;
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 20px;
-  position: relative;
+}
+
+.btn-primary:hover {
+  background-color: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.btn-success {
+  background-color: #198754;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(25, 135, 84, 0.3);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* Bottom action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin-top: 20px;
+}
+
+.action-buttons .btn {
+  width: 48%;
+}
+
+/* Enhanced Footer Styling with White Background */
+footer {
+  background-color: rgba(255, 255, 255, 0.95); /* White with slight transparency */
+  color: #333; /* Dark text for better contrast on white */
+  text-align: center;
+  padding: 25px 0;
+  width: 100%;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
+  border-top: 3px solid #0066cc; /* Changed to blue accent */
+  margin-top: 0;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+footer .social-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer .social-links a {
+  color: #333; /* Dark icons on white background */
+  background-color: rgba(0, 0, 0, 0.05); /* Light gray background */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+footer .social-links a:hover {
+  background-color: #0066cc; /* Changed to blue on hover */
+  color: white; /* White icons on blue background */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 102, 204, 0.3);
+}
+
+/* Add these to your responsive sections */
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 0;
+  }
+  
+  footer .social-links a {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  footer {
+    padding: 15px 0;
+  }
+  
+  footer .social-links a {
+    width: 32px;
+    height: 32px;
+  }
 }

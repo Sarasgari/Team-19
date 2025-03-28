@@ -83,7 +83,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center p-3 mt-4 bg-dark text-white">
+  <footer class="text-center p-3 mt-4">
     <p>© 2024 GameDen. All Rights Reserved.</p>
   </footer>
 

@@ -9,13 +9,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    
     <link rel="stylesheet" href="{{ asset('css/PaymentForm.css') }}">
 </head>
 <body>
 <!--paymentform-->
 <form id="CheckoutForm">
     <h1>Payment</h1>
+    
+    @if(isset($order_id))
+    <input type="hidden" name="order_id" value="{{ $order_id }}">
+    @endif
 
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <p class="total-amount">Total: £{{ number_format($totalAmount, 2) }}</p>
+    </div>
     
     <label for="name">Full Name</label><br>
     <input class="box1" type="text" name="name" id="name" placeholder="Enter Name" required><br>
@@ -52,6 +64,22 @@
 
     <script src="{{ asset('js/PaymentForm.js') }}"></script>
 </form>
+
+<style>
+    .order-summary {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #dee2e6;
+    }
+    
+    .total-amount {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #28a745;
+    }
+</style>
 
 </body>
 </html>
