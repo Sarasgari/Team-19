@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Cart;
 use App\Models\Game;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
@@ -32,44 +34,80 @@ class CartController extends Controller
     // Add Item to Cart (Supports Guests & Logged-in Users)
     public function addToCart(Request $request)
     {
+        \Log::info('Add to cart request received: ' . json_encode($request->all()));
+        
         $gameId = $request->id;
         $game = Game::find($gameId);
         
-        if (!$game || $game->stock <= 0) {
+        if (!$game) {
+            \Log::error('Game not found: ' . $gameId);
+            return redirect()->back()->with('error', 'Game not found!');
+        }
+        
+        if ($game->stock <= 0) {
+            \Log::error('Game out of stock: ' . $game->title);
             return redirect()->back()->with('error', 'This game is out of stock!');
         }
         
+        \Log::info('Game found: ' . $game->title . ', Stock: ' . $game->stock);
+        
         if (Auth::check()) {
-            // Logged-in user: Save to database
-            // Using product_id to match your database schema
-            $cartItem = Cart::where('user_id', Auth::id())
-                           ->where('product_id', $gameId)
-                           ->first();
+            \Log::info('User is authenticated: ' . Auth::id());
             
-            if ($cartItem) {
-                if ($cartItem->quantity < $game->stock) {
-                    $cartItem->quantity++;
-                    $cartItem->total = $cartItem->quantity * $game->price; // Update total
-                    $cartItem->save();
+            // Logged-in user: Save to database
+            try {
+                // Check for existing cart item
+                $cartItem = Cart::where('user_id', Auth::id())
+                            ->where('product_id', $gameId)
+                            ->first();
+                
+                \Log::info('Existing cart item: ' . ($cartItem ? 'Yes, ID=' . $cartItem->id : 'No'));
+                
+                if ($cartItem) {
+                    // Update existing item
+                    if ($cartItem->quantity < $game->stock) {
+                        $cartItem->quantity++;
+                        $cartItem->total = $cartItem->quantity * $game->price;
+                        $cartItem->save();
+                        \Log::info('Updated cart item: Qty=' . $cartItem->quantity . ', Total=' . $cartItem->total);
+                    } else {
+                        \Log::error('Not enough stock available');
+                        return redirect()->back()->with('error', 'Not enough stock available!');
+                    }
                 } else {
-                    return redirect()->back()->with('error', 'Not enough stock available!');
+                    // Create new cart item
+                    try {
+                        $newCartItem = new Cart();
+                        $newCartItem->user_id = Auth::id();
+                        $newCartItem->product_id = $gameId;
+                        $newCartItem->quantity = 1;
+                        $newCartItem->total = $game->price;
+                        $newCartItem->save();
+                        
+                        \Log::info('Created new cart item: ID=' . $newCartItem->id);
+                    } catch (\Exception $e) {
+                        \Log::error('Error creating cart item: ' . $e->getMessage());
+                        \Log::error($e->getTraceAsString());
+                        return redirect()->back()->with('error', 'Error adding to cart. Please try again.');
+                    }
                 }
-            } else {
-                Cart::create([
-                    'user_id' => Auth::id(),
-                    'product_id' => $gameId,
-                    'quantity' => 1,
-                    'total' => $game->price // Set initial total
-                ]);
+            } catch (\Exception $e) {
+                \Log::error('Error in addToCart: ' . $e->getMessage());
+                \Log::error($e->getTraceAsString());
+                return redirect()->back()->with('error', 'Error adding to cart. Please try again.');
             }
         } else {
+            \Log::info('User is guest, adding to session');
+            
             // Guest user: Save to session
             $cart = Session::get('cart', []);
             if (isset($cart[$gameId])) {
                 if ($cart[$gameId]['quantity'] < $game->stock) {
                     $cart[$gameId]['quantity']++;
-                    $cart[$gameId]['total'] = $cart[$gameId]['quantity'] * $game->price; // Update total
+                    $cart[$gameId]['total'] = $cart[$gameId]['quantity'] * $game->price;
+                    \Log::info('Updated session cart item: Qty=' . $cart[$gameId]['quantity']);
                 } else {
+                    \Log::error('Not enough stock available for session cart');
                     return redirect()->back()->with('error', 'Not enough stock available!');
                 }
             } else {
@@ -77,21 +115,23 @@ class CartController extends Controller
                     'title' => $game->title,
                     'price' => $game->price,
                     'quantity' => 1,
-                    'total' => $game->price // Set initial total
+                    'total' => $game->price
                 ];
+                \Log::info('Added new item to session cart: ' . $game->title);
             }
             Session::put('cart', $cart);
         }
         
         // If the request has a 'redirect_to_basket' parameter, redirect to basket
         if ($request->has('redirect_to_basket')) {
+            \Log::info('Redirecting to basket');
             return redirect()->route('Basket')->with('success', 'Product added to cart successfully!');
         }
         
         // Otherwise redirect back to the previous page
+        \Log::info('Redirecting back to previous page');
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
-
     // Update Cart Quantity (Supports Guests & Logged-in Users)
     public function updateCart(Request $request)
     {
@@ -174,43 +214,12 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Cart cleared successfully!');
     }
 
-    // Checkout - Reduce Stock (Only for Logged-in Users)
+    // Checkout - Reduce Stock and Create Order
     public function checkout()
     {
+        // Only allow logged-in users to checkout
         if (!Auth::check()) {
-            // Process guest session cart
-            $cart = Session::get('cart', []);
-            if (empty($cart)) {
-                return redirect()->back()->with('error', 'Your cart is empty!');
-            }
-    
-            DB::beginTransaction();
-            try {
-                $totalAmount = 0; // Track total amount
-    
-                foreach ($cart as $gameId => $item) {
-                    $game = Game::find($gameId);
-                    if ($game && $game->stock >= $item['quantity']) {
-                        $game->stock -= $item['quantity'];
-                        $game->save();
-                        $totalAmount += $game->price * $item['quantity'];
-                    } else {
-                        DB::rollBack();
-                        return redirect()->back()->with('error', 'Not enough stock for some items.');
-                    }
-                }
-    
-                // Clear guest cart after successful purchase
-                Session::forget('cart');
-                DB::commit();
-    
-                // Pass cart items & total to PaymentForm
-                return view('PaymentForm', ['cart' => $cart, 'totalAmount' => $totalAmount])
-                       ->with('success', 'Purchase successful!');
-            } catch (\Exception $e) {
-                DB::rollBack();
-                return redirect()->back()->with('error', 'Something went wrong. Please try again.');
-            }
+            return redirect()->route('login')->with('error', 'Please login to complete your purchase.');
         }
     
         // Process checkout for logged-in users
@@ -219,20 +228,71 @@ class CartController extends Controller
             return redirect()->back()->with('error', 'Your cart is empty!');
         }
     
+        // Add this debugging
+        \Log::info('Starting checkout process');
+        \Log::info('Cart items:', $cartItems->toArray());
+    
         DB::beginTransaction();
         try {
             $totalAmount = 0;
+            $orderItems = [];
     
             foreach ($cartItems as $cartItem) {
-                $game = Game::find($cartItem->product_id);  // Using product_id to match your schema
+                $game = Game::find($cartItem->product_id);
+                
+                // Add this debugging
+                \Log::info('Processing game:', ['id' => $cartItem->product_id, 'found' => $game ? 'yes' : 'no']);
+                
                 if ($game && $game->stock >= $cartItem->quantity) {
                     $game->stock -= $cartItem->quantity;
                     $game->save();
-                    $totalAmount += $game->price * $cartItem->quantity;
+                    
+                    $itemTotal = $game->price * $cartItem->quantity;
+                    $totalAmount += $itemTotal;
+                    
+                    // Store order item details for later use
+                    $orderItems[] = [
+                        'game_id' => $game->id,
+                        'game_title' => $game->title,
+                        'quantity' => $cartItem->quantity,
+                        'price' => $game->price,
+                        'subtotal' => $itemTotal
+                    ];
+                    
+                    // Debug each item as it's added
+                    \Log::info('Added order item:', end($orderItems));
                 } else {
                     DB::rollBack();
                     return redirect()->back()->with('error', 'Not enough stock for some items.');
                 }
+            }
+    
+            // Debug before order creation
+            \Log::info('About to create order with total:', ['total' => $totalAmount]);
+            
+            // Create a new order record
+            $order = Order::create([
+                'user_id' => Auth::id(),
+                'total' => $totalAmount,
+                'status' => 'pending'
+            ]);
+            
+            // Debug after order creation
+            \Log::info('Created order:', ['order_id' => $order->id]);
+            
+            // Create order items records
+            foreach ($orderItems as $item) {
+                // Debug each item before creating
+                \Log::info('Creating order item:', $item);
+                
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'game_id' => $item['game_id'],
+                    'game_title' => $item['game_title'],
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                    'subtotal' => $item['subtotal']
+                ]);
             }
     
             // Clear cart after purchase
@@ -240,11 +300,16 @@ class CartController extends Controller
             DB::commit();
     
             // Pass data to PaymentForm
-            return view('PaymentForm', ['cart' => $cartItems, 'totalAmount' => $totalAmount])
-                   ->with('success', 'Purchase successful!');
+            return view('PaymentForm', [
+                'cart' => $cartItems, 
+                'totalAmount' => $totalAmount,
+                'order_id' => $order->id
+            ])->with('success', 'Purchase successful!');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
+            \Log::error('Checkout error: ' . $e->getMessage());
+            \Log::error('Checkout error trace: ' . $e->getTraceAsString());
+            return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
         }
     }
 }

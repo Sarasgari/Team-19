@@ -48,19 +48,16 @@ function validCVV() {
     return true;
 }
 
-/* to check that the form is completed and valid*/
 function Formcomplete() {
     const form = document.getElementById("CheckoutForm");
 
     if (form.checkValidity()) {
         if (validCVV() && validCardNumber() && validExpDate()) {
-            window.location.href = paymentRoute;  
+            // Just redirect for now to confirm basic functionality
+            window.location.href = paymentRoute;
         }
     } else {
         form.reportValidity();
     }
 }
 
-function redirectToHome() {
-    window.location.href = homeRoute;  
-}
