@@ -51,7 +51,7 @@
                             <tr>
                                 <td>{{ $game->title }}</td>
                                 <td>{{ Str::limit($game->description, 100) }}</td>
-                                <td>${{ number_format($game->price, 2) }}</td>
+                                <td>£{{ number_format($game->price, 2) }}</td>
                                 <td>{{ \Carbon\Carbon::parse($game->releasedate)->format('M d, Y') }}</td>
                                 <td>{{ $game->stock }}</td>
                                 <td>{{ $game->platform }}</td>
